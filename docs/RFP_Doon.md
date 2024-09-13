@@ -1,5 +1,17 @@
 # RFP
 
+## Problem Description
+
+## Project Objectives
+
+## Current System
+
+## Intended Users
+
+## Known Interactions and Dependencies
+
+## Known Constraints
+
 ## Project Schedule
 
 | Date  | Milestone                                     |
@@ -18,3 +30,9 @@
 | 11/28 | Launch Beta                                   |
 | 12/5  | Hardening and Bug Fixes                       |
 | 12/12 | Launch Day version 1.0.0                      |
+
+## How to Submit Proposals
+
+## Dates
+
+## Glossary of Terms
