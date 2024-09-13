@@ -17,7 +17,9 @@
   - [Dates](#dates)
   - [Glossary of Terms](#glossary-of-terms)
 
-## Problem Description
+## 1.0 Problem description / opportunity / expression of need
+
+> In the wake of the popular movie series “Dune”, a need for a high-quality platformer video game to allow fans to immerse themselves in this fantasy world has become apparent. Given the huge success of "Dune", a video game tying into core events of the films will ensure success and ample returns. The goal of the proposed platformer game "Doon" will be for the user to navigate the user through the challenges seen in the film. With simple but enjoyable tasks including deserts survival, worm riding and fighting Feyd-Rautha users are destined to return to relive Paul Atreides life on Arrakis.
 
 ## Project Objectives
 
@@ -27,7 +29,7 @@
 
 ## Known Interactions and Dependencies
 
-## Known Constraints
+## Known Constraints  
 
 ## Project Schedule
 
