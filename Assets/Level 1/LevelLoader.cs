@@ -8,6 +8,7 @@ public class LevelLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        LevelAudio();
         
     }
 
@@ -31,5 +32,9 @@ public class LevelLoader : MonoBehaviour
             SceneManager.LoadScene(3);
         }
 
+    }
+
+    private void LevelAudio(){
+        Debug.Log("Joe: Audio Manger Coming Soon");
     }
 }
