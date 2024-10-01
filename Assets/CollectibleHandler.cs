@@ -5,6 +5,6 @@ using UnityEngine;
 public class CollectibleHandler : MonoBehaviour {
     
     public void CollectibleFeature() {
-        console.log("feature coming soon");
+        Debug.Log("feature coming soon");
     }
 }
