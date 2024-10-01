@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
+    public float jumpForce = 5f;
+
     private Rigidbody2D rb;
 
     void Start()
@@ -12,13 +14,24 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
+    private void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        Vector2 movement = new Vector2(horizontalInput, 0);
-
-        rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
+        Move();
+        Jump();
     }
+    private void Move()
+    {
+        float moveInput = Input.GetAxis("Horizontal");
+        // Move the player
+        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
+    }
+    private void Jump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+    }
 }
 

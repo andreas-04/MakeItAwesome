@@ -51,7 +51,9 @@ public class WormManager : MonoBehaviour
             if(!temp.GetComponent<Rigidbody2D>()){
                 temp.AddComponent<Rigidbody2D>();
                 temp.GetComponent<Rigidbody2D>().gravityScale = 0;
+                temp.GetComponent<Rigidbody2D>().collisionDetectionMode = CollisionDetectionMode2D.Continuous;
             }
+            // if(!temp.GetComponent<CircleCollider2D>)
             wormBody.Add(temp);
             bodyParts.RemoveAt(0);
         }
@@ -68,6 +70,8 @@ public class WormManager : MonoBehaviour
             if(!temp1.GetComponent<Rigidbody2D>()){
                 temp1.AddComponent<Rigidbody2D>();
                 temp1.GetComponent<Rigidbody2D>().gravityScale = 0;
+                temp1.GetComponent<Rigidbody2D>().collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+
             }
             wormBody.Add(temp1);
             bodyParts.RemoveAt(0);

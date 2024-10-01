@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Border
   - LevelExit
+  - LevelExit2
+  - LevelExit1
+  - LevelExit3
   layers:
   - Default
   - TransparentFX
