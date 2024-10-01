@@ -5,6 +5,6 @@ using UnityEngine;
 public class Enemies : MonoBehaviour {
     
     public void EnemyPathing() {
-        console.log("Enemy pathing feature coming soon");
+        Debug.Log("Enemy pathing feature coming soon");
     }
 }
