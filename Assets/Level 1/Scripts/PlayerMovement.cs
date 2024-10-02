@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     public float jumpForce = 5f;
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     void Start()
     {
