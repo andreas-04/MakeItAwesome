@@ -4,7 +4,7 @@
 ## Getting Started
 
 ### Note: 
-- The below instructions for using Test Runner apply to both boundary and stress testing. Although stress tests don't need to be automated or used in the Test Runner, for simplicities sake, its much easier this way. 
+- The below instructions for using Test Runner apply to both boundary and stress testing. Although stress tests doesn't need to be automated or used in the Test Runner, for the sake of simplicity, its much easier this way. 
 - The Test Runner now comes default with the Unity Editor so you don't need to download. 
 
 ### Pre-Step: Creating Testing Assembly Folder (Edit/Play Mode)
@@ -26,9 +26,9 @@
 > Use Player Mode if you require a running instance of the game. This is commonly used for testing the movement of objects within the game. 
 
 ### Step 2: Locate Testing Folder
-- Within this directory, ~/Tests, you have a directory with titled with your name. All of your tests will be here.  
+- Within this directory, ~/Tests/TestEditMode and ~/Tests/TestPlayMode, you have a directory titled with your name. All of your tests will be here.  
 
-### Step 3: Create Assembly for your Code to link to the test assembly
+### Step 3: Create Assembly for your Code to link to the Test Assembly
 1. Follow these steps for both the Play and Edit Mode:
     - Go to "Assembly References". 
     - Click the "+" button.
@@ -40,7 +40,7 @@
 2. Right Click > Create > Testing > C# Test Script
 
 ## Creating Boundary Tests
-> Boundary tests are designed to test the strength of your code at its weakest points. They typically take the form of mocking some input to an scene the testing within the range of that scene, at its boundary and just past it. The test should pass if the boundary is not passed and fail it it is passed. 
+> Boundary tests are designed to test the strength of your code at its weakest points. They typically takes the form of mocking some input to an scene, then testing within the range of that scene, at its boundary and just past it. The test should pass if the boundary is not passed and fail it it is passed. 
 > Since any testing has many different ways to create the test and they are all relative to the code, I will provide examples and an outline to get you started. 
 
 ### Examples
@@ -68,3 +68,8 @@
     2. Assert/Check: Check to see if the expected failed condition is met. 
     3. Change: If nothing is broken yet, change something and repeat. 
 3. Final Assertion: You may or may not want to double check the assertion or comment the final result. 
+
+## Running the Test
+- At the top of your screen, select Window > General > Test Runner.
+- Select either EditMode or PlayMode. 
+- Select Run All or select a test and click Test Selected. 
