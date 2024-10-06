@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     public List<Collectible> inventory = new List<Collectible>();
 
-    public string currentObjective;
+    public string currentObjective = "Locate Your Stillsuit";
 
     private void Awake()
     {
@@ -25,20 +25,46 @@ public class GameManager : MonoBehaviour
         }
     }
     
+    public void TakeDamage(int damage)
+    {
+        playerHealth -= damage;
+        if (playerHealth <= 0)
+        {
+            playerHealth = 0;
+            GameOver();
+        }
+        Debug.Log("Player Health: " + playerHealth);
+    }
+     public void Heal(int health)
+    {
+        playerHealth += health;
+        if (playerHealth >= 100)
+        {
+            playerHealth = 100;
+        }
+        Debug.Log("Player Health: " + playerHealth);
+    }
     public void AddToInventory(Collectible item)
     {
         inventory.Add(item);
         Debug.Log(item.name + " added to inventory.");
+
+        //check if stillsuit fully collected (all pieces)
+        //this assumes we have to find the stillsuit first, then the rest of the items are loaded, feel free to rework
+        //UpdateObjective("Locate the rest of your supplies")
+
+        //if all items for level 1 collected activate level exit
     }
     public void UpdateObjective(string newObjective)
     {
         currentObjective = newObjective;
         Debug.Log("Objective updated: " + currentObjective);
+
+
     }
 
     private void GameOver()
     {
         Debug.Log("Game Over!");
-        // Add game over logic here (e.g., show Game Over screen, restart level)
     }
 }
