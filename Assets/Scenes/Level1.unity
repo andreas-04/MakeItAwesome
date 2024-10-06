@@ -236,8 +236,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35d27226b719b4cd69e9df03aba528a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
-  startingHealth: 100
+--- !u!1 &1932872965 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5312454239731842799, guid: 8be70fec0b7da43a2bb2fb9e85c79431, type: 3}
+  m_PrefabInstance: {fileID: 1418173155210053902}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1932872966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932872965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 304f76da2471d423cb3cb35c3db3c1c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1418173155210053902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -252,7 +267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5312454239731842799, guid: 8be70fec0b7da43a2bb2fb9e85c79431, type: 3}
       propertyPath: m_TagString
-      value: LevelExit1
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5616702520485434042, guid: 8be70fec0b7da43a2bb2fb9e85c79431, type: 3}
       propertyPath: m_Direction
@@ -309,7 +324,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5312454239731842799, guid: 8be70fec0b7da43a2bb2fb9e85c79431, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1932872966}
   m_SourcePrefab: {fileID: 100100000, guid: 8be70fec0b7da43a2bb2fb9e85c79431, type: 3}
 --- !u!1001 &2973117472489693459
 PrefabInstance:

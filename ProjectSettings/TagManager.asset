@@ -5,10 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Border
-  - LevelExit
-  - LevelExit2
-  - LevelExit1
   - LevelExit3
+  - wormHead
   layers:
   - Default
   - TransparentFX

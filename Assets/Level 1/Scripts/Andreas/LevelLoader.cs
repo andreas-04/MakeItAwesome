@@ -5,22 +5,37 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
+    private float survivalTime = 60f; // 1 minute in seconds
+    private float startTime;
+    private bool hasSurvived = false;
+    private int currentLevel = 0;
+
+    private void Start()
+    {
+        startTime = Time.time;
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
+    }
+
+    private void Update()
+    {
+        if (!hasSurvived && Time.time - startTime >= survivalTime && currentLevel == 1)
+        {
+            LoadNextLevel();
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "LevelExit1"){
-            Debug.Log("Entering LevelExit");
-            SceneManager.LoadScene(1);
+        if (other.CompareTag("Player") && currentLevel == 0)
+        {
+            hasSurvived = true;
+            LoadNextLevel();
         }
-        if(other.tag == "LevelExit2"){
-            Debug.Log("Entering LevelExit");
-            SceneManager.LoadScene(2);
-        }
-        if(other.tag == "LevelExit3"){
-            Debug.Log("Entering LevelExit");
-            SceneManager.LoadScene(3);
-        }
-
     }
 
+    private void LoadNextLevel()
+    {
+        int nextLevelIndex = currentLevel + 1;
+        SceneManager.LoadScene(nextLevelIndex);
+    }
 }

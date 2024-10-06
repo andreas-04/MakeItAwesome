@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1926166055360623186}
   - component: {fileID: 1445150187249563812}
   m_Layer: 0
-  m_Name: WormManager 1
+  m_Name: WormManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,6 +50,16 @@ MonoBehaviour:
   turnSpeed: 180
   bodyParts:
   - {fileID: 3982647131295854606, guid: 015da00d655c9431b85ba9d735d81617, type: 3}
+  - {fileID: 9025355190893551843, guid: 2a2d83014c1f84f829b0936940a8271a, type: 3}
+  - {fileID: 9025355190893551843, guid: 2a2d83014c1f84f829b0936940a8271a, type: 3}
+  - {fileID: 9025355190893551843, guid: 2a2d83014c1f84f829b0936940a8271a, type: 3}
+  - {fileID: 9025355190893551843, guid: 2a2d83014c1f84f829b0936940a8271a, type: 3}
+  - {fileID: 9025355190893551843, guid: 2a2d83014c1f84f829b0936940a8271a, type: 3}
+  - {fileID: 9025355190893551843, guid: 2a2d83014c1f84f829b0936940a8271a, type: 3}
+  - {fileID: 9025355190893551843, guid: 2a2d83014c1f84f829b0936940a8271a, type: 3}
+  - {fileID: 9025355190893551843, guid: 2a2d83014c1f84f829b0936940a8271a, type: 3}
+  - {fileID: 9025355190893551843, guid: 2a2d83014c1f84f829b0936940a8271a, type: 3}
+  - {fileID: 9025355190893551843, guid: 2a2d83014c1f84f829b0936940a8271a, type: 3}
   - {fileID: 9025355190893551843, guid: 2a2d83014c1f84f829b0936940a8271a, type: 3}
   - {fileID: 9025355190893551843, guid: 2a2d83014c1f84f829b0936940a8271a, type: 3}
   - {fileID: 9025355190893551843, guid: 2a2d83014c1f84f829b0936940a8271a, type: 3}

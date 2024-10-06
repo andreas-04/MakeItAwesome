@@ -192,28 +192,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 381c53432028b42d9926ee1b2248fd74, type: 3}
---- !u!1 &657383402 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6482468723534252497, guid: 381c53432028b42d9926ee1b2248fd74, type: 3}
-  m_PrefabInstance: {fileID: 1817699536}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &657383408 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6571172715756053044, guid: 381c53432028b42d9926ee1b2248fd74, type: 3}
   m_PrefabInstance: {fileID: 1817699536}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &657383409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 657383402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 304f76da2471d423cb3cb35c3db3c1c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &959487562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -330,8 +313,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5312454239731842799, guid: 8be70fec0b7da43a2bb2fb9e85c79431, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1527474166}
   m_SourcePrefab: {fileID: 100100000, guid: 8be70fec0b7da43a2bb2fb9e85c79431, type: 3}
+--- !u!1 &1527474165 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5312454239731842799, guid: 8be70fec0b7da43a2bb2fb9e85c79431, type: 3}
+  m_PrefabInstance: {fileID: 1527474164}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1527474166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527474165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 304f76da2471d423cb3cb35c3db3c1c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1721128007
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,17 +495,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6903856114734830883, guid: 381c53432028b42d9926ee1b2248fd74, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6571172715756053044, guid: 381c53432028b42d9926ee1b2248fd74, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1721128010}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6482468723534252497, guid: 381c53432028b42d9926ee1b2248fd74, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 657383409}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 381c53432028b42d9926ee1b2248fd74, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
