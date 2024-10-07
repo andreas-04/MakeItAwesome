@@ -8,6 +8,7 @@ public class CollectibleHandler : MonoBehaviour
 
     public void initItems() {
         //call functions to init goal and powerups
+        Debug.Log("collectible handler active");
         goalitems.GetComponent<GoalItems>().initGoalItems();
     }
 
@@ -16,7 +17,7 @@ public class CollectibleHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        initItems();
     }
 
     // Update is called once per frame

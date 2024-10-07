@@ -9,9 +9,5 @@ public class Stillsuit : MonoBehaviour
 
     public Vector2 spawnPos = new Vector2(posX, posY);
 
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Player")) {
-            //do stuff
-        }
-    }
+    
 }
