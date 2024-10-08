@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 5f;
 
     public Rigidbody2D rb;
-
+    bool grounded = true;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,10 +28,24 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
     }
+    //Collision checks for grounded
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            grounded = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            grounded = false;
+        }
+    }
 }
-
