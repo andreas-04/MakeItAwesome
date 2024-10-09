@@ -1,25 +1,55 @@
-using System.Collections;
-using System.Collections.Generic;
 using NUnit.Framework;
-using UnityEngine;
-using UnityEngine.TestTools;
 
-public class Test1
+[TestFixture]  // Marks this class as a test class
+public class PlayerMovementTests
 {
-    // A Test behaves as an ordinary method
-    [Test]
-    public void Test1SimplePasses()
+    private PlayerMovement _playerMovement;
+
+    [SetUp]  // This runs before every test
+    public void SetUp()
     {
-        // Use the Assert class to test conditions
+        _playerMovement = new PlayerMovement();  // Initialize the class being tested
     }
 
-    // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-    // `yield return null;` to skip a frame.
-    [UnityTest]
-    public IEnumerator Test1WithEnumeratorPasses()
+    [Test]  // Marks this method as a test case
+    public void CalculateSpeed_DistanceAndTimeGiven_ReturnsCorrectSpeed()
     {
-        // Use the Assert class to test conditions.
-        // Use yield to skip a frame.
-        yield return null;
+        // Arrange
+        float distance = 100f;
+        float time = 10f;
+
+        // Act
+        float result = _playerMovement.CalculateSpeed(distance, time);
+
+        // Assert
+        Assert.AreEqual(10f, result);  // Speed should be 100 / 10 = 10
+    }
+
+    [Test]
+    public void CalculateSpeed_TimeIsZero_ReturnsZero()
+    {
+        // Arrange
+        float distance = 100f;
+        float time = 0f;
+
+        // Act
+        float result = _playerMovement.CalculateSpeed(distance, time);
+
+        // Assert
+        Assert.AreEqual(0f, result);  // If time is zero, speed should be 0
+    }
+
+    [Test]
+    public void CalculateSpeed_NegativeTime_ReturnsZero()
+    {
+        // Arrange
+        float distance = 100f;
+        float time = -5f;
+
+        // Act
+        float result = _playerMovement.CalculateSpeed(distance, time);
+
+        // Assert
+        Assert.AreEqual(0f, result);  // If time is negative, speed should be 0
     }
 }

@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class Boundary
 {
-    // TODO: Full physics
-
     private bool sceneLoaded;
 
     [OneTimeSetUp]

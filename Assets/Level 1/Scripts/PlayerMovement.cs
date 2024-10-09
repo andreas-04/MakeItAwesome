@@ -48,4 +48,11 @@ public class PlayerMovement : MonoBehaviour
             grounded = false;
         }
     }
+
+    public float CalculateSpeed(float distance, float time)
+    {
+        // another function call
+        if (time <= 0) return 0;
+        return distance / time;
+    }
 }
