@@ -6,24 +6,38 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
     public float jumpForce = 5f;
-
+    public float moveInput;
     public Rigidbody2D rb;
     bool grounded = true;
+    bool spacebarPressed = true; 
+    //Make Animations Smoother Later
+
+    private PlayerAnimationController playerAnimationController; //Controls animation
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerAnimationController = GetComponent<PlayerAnimationController>(); // Reference the animation script
     }
 
     private void Update()
     {
         Move();
         Jump();
+
+        float verticalVelocity = rb.velocity.y;
+
+        //Sends speed and grounded state to animation script function
+        playerAnimationController.UpdateAnimation(moveInput, grounded, verticalVelocity, spacebarPressed);
     }
     private void Move()
     {
-        float moveInput = Input.GetAxis("Horizontal");
+        moveInput = Input.GetAxis("Horizontal");
         // Move the player
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+
+        //Flip Sprite 
+        playerAnimationController.FlipSprite(moveInput);
 
     }
     private void Jump()
@@ -31,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            grounded = false;
+            spacebarPressed = true;
         }
     }
     //Collision checks for grounded
@@ -39,8 +55,10 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             grounded = true;
+            spacebarPressed = false;
         }
     }
+
     private void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Ground"))
