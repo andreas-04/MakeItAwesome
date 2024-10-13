@@ -132,6 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 666235079}
   - component: {fileID: 666235078}
+  - component: {fileID: 666235080}
   m_Layer: 0
   m_Name: ItemLoader
   m_TagString: Untagged
@@ -151,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22261ace5fd21464ab18cd87f883f743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goalitems: {fileID: 7272998731314778499, guid: 91e4c4ac7fee6b1478387104c93f7cf3, type: 3}
+  spawnPos: {x: 0, y: 0}
 --- !u!4 &666235079
 Transform:
   m_ObjectHideFlags: 0
@@ -167,6 +168,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &666235080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666235077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63c6a4ece2e66b84e87afa1a071ae894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPos: {x: 0, y: 0}
+  stillsuit: {fileID: 692089290211845311, guid: fc17848186dcb694a9d4c59ba9a8cdd7, type: 3}
+  tent: {fileID: 692089290211845311, guid: de2b77b3bc9ade5438f6e54abca306f1, type: 3}
+  knife: {fileID: 692089290211845311, guid: f195f34bdef699b4f88867aa4ba6b0ed, type: 3}
+  hooks: {fileID: 692089290211845311, guid: fc46627f372258f4c90f8af0a354014e, type: 3}
 --- !u!1 &793261645
 GameObject:
   m_ObjectHideFlags: 0

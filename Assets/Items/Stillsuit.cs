@@ -9,5 +9,6 @@ public class Stillsuit : MonoBehaviour
 
     public Vector2 spawnPos = new Vector2(posX, posY);
 
+    //Random.Range(-10,10)
     
 }
