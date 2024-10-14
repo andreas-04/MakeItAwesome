@@ -4,7 +4,10 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - stillsuit: {fileID: 3875766431436703919, guid: fc17848186dcb694a9d4c59ba9a8cdd7, type: 3}
+  - stillsuit: {fileID: 692089290211845311, guid: fc17848186dcb694a9d4c59ba9a8cdd7, type: 3}
+  - tent: {fileID: 692089290211845311, guid: de2b77b3bc9ade5438f6e54abca306f1, type: 3}
+  - knife: {fileID: 692089290211845311, guid: f195f34bdef699b4f88867aa4ba6b0ed, type: 3}
+  - hooks: {fileID: 692089290211845311, guid: fc46627f372258f4c90f8af0a354014e, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

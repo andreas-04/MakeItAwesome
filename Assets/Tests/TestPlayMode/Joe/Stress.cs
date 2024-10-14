@@ -39,7 +39,7 @@ public class Stress
 
         // Start with an initial speed and gradually increase it
         float speed = -20f;  // Start with a slow speed to the left
-        float speedIncrement = -5f;  // Gradually increase speed
+        float speedIncrement = -10f;  // Gradually increase speed
         bool playerPassedThroughWall = false;
 
         while (!playerPassedThroughWall)

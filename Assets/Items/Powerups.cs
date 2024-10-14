@@ -2,8 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class NewBehaviourScript : CollectibleHandler
 {
+    public GameObject water;
+    
+    void initItems() {
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
