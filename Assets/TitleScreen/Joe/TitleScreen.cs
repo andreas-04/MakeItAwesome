@@ -7,6 +7,8 @@ public class TitleScreenManager : MonoBehaviour
     // Reference to the button (can be set in the Inspector or via code)
     public Button startButton;
 
+    public 
+
     void Start()
     {
         // Hook up the StartGame method to the button's onClick event
