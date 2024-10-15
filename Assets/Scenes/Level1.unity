@@ -781,6 +781,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platforms
       objectReference: {fileID: 0}
+    - target: {fileID: 1399645322854109773, guid: e6aee7219e6b646d6aac5f5f7dcc0bd5, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6550549443738453739, guid: e6aee7219e6b646d6aac5f5f7dcc0bd5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.540256
