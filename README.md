@@ -1,7 +1,7 @@
 # Doon - A Unity Platformer Game  
 *Developed by MakeItAwesome*
 
-![Doon Logo](image.png)
+![Doon Logo](./docs/DoonLogo.png)
 
 ## Overview  
 Welcome to *Doon*, an exciting 2D action-adventure platformer set in the world of Arrakis! Inspired by the legendary *Dune* series, *Doon* invites players to embark on a journey of survival, sandworm riding, and battles against the Harkonnens. Whether you're exploring the desert or facing enemies in combat, *Doon* promises a thrilling experience across multiple levels.
