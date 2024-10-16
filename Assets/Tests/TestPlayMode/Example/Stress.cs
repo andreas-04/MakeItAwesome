@@ -5,7 +5,7 @@ using NUnit.Framework;
 using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
 
-public class Stress
+public class ExampleStress
 {
     private bool sceneLoaded;
 
@@ -76,6 +76,7 @@ public class Stress
 
         // If the player passes through the wall, fail the test and log the speed
         Assert.Pass("Player passed through the wall at speed: " + Mathf.Abs(speed));
+        yield return new WaitForSeconds(1); 
     }
 
 }

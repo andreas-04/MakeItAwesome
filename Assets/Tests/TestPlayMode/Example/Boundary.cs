@@ -5,7 +5,7 @@ using NUnit.Framework;
 using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
 
-public class Boundary
+public class ExampleBoundaryStress
 {
     private bool sceneLoaded;
 
@@ -53,6 +53,7 @@ public class Boundary
         // Assert that the player's final position is not less than the wall's position (can't pass through wall)
         Assert.GreaterOrEqual(finalPlayerPosition, wallPositionX, 
             "Player should not have passed through the wall on the left.");
+        yield return new WaitForSeconds(1); 
     }
 
     [UnityTest]
@@ -95,6 +96,8 @@ public class Boundary
         // Assert that the player has not passed the wall (cannot go past the wall)
         Assert.GreaterOrEqual(finalPlayerPositionX, wallPositionX, 
             "Player should not be able to move past the wall.");
+
+        yield return new WaitForSeconds(1); 
     }
 
 }
