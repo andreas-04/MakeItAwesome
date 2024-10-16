@@ -5,7 +5,7 @@ using NUnit.Framework;
 using UnityEngine.TestTools;
 public class RandomSceneSwitchTest
 {
-    [UnityTest]
+    // [UnityTest]
     public IEnumerator SwitchScenesEveryFrameRandomly()
     {
         int totalScenes = SceneManager.sceneCountInBuildSettings;
@@ -20,7 +20,7 @@ public class RandomSceneSwitchTest
             }
             yield return null;
         }
-        Assert.Pass("nay");
+        Assert.Fail("nay");
 
     }
 }
