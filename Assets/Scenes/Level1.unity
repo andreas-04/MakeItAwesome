@@ -1409,7 +1409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1283533559
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1977,6 +1977,7 @@ GameObject:
   - component: {fileID: 1856570273}
   - component: {fileID: 1856570272}
   - component: {fileID: 1856570271}
+  - component: {fileID: 1856570274}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: Untagged
@@ -2086,6 +2087,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1856570269}
   m_CullTransparentMesh: 1
+--- !u!114 &1856570274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856570269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23dea2f70ff5743cb8cabc12a0e4618b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseButton: {fileID: 1856570271}
+  pauseMenu: {fileID: 926404350}
+  resumeButton: {fileID: 418602861}
+  controlsButton: {fileID: 1718859731}
+  quitButton: {fileID: 533334757}
 --- !u!1 &1932872965 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5312454239731842799, guid: 8be70fec0b7da43a2bb2fb9e85c79431, type: 3}
