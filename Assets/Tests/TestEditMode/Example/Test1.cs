@@ -1,7 +1,7 @@
 using NUnit.Framework;
 
 [TestFixture]  // Marks this class as a test class
-public class PlayerMovementTests
+public class Examples
 {
     private PlayerMovement _playerMovement;
 
