@@ -4,7 +4,7 @@ using NUnit.Framework;
 using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
 
-public class ElizabethSPlayerJumpSpamTest
+public class ElizabethS_PlayerJumpSpamTest
 {
     private bool sceneLoaded;
     //Load Scene

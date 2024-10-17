@@ -12,6 +12,7 @@ TagManager:
   - Item
   - HealthUI
   - Enemy
+  - HealthCanvas
   layers:
   - Default
   - TransparentFX
