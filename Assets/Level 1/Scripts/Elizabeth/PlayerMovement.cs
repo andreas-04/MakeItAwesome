@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 5f;
     public float moveInput;
     public Rigidbody2D rb;
-    bool grounded = true;
+    public  bool grounded = true;
     bool spacebarPressed = true; 
     //Make Animations Smoother Later
 

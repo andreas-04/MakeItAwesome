@@ -9,6 +9,9 @@ TagManager:
   - wormHead
   - LevelExit
   - Ground
+  - Item
+  - HealthUI
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -1257,7 +1257,7 @@ GameObject:
   - component: {fileID: 984216186}
   m_Layer: 5
   m_Name: HealthUI
-  m_TagString: Untagged
+  m_TagString: HealthUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1278,10 +1278,10 @@ RectTransform:
   - {fileID: 2007840905}
   m_Father: {fileID: 422569670}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -268.89642, y: 229.29953}
-  m_SizeDelta: {x: 289.0104, y: 59.3977}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 144.5052, y: -29.698853}
+  m_SizeDelta: {x: 289.01038, y: 59.397705}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1113954166 stripped
 Transform:
@@ -1331,6 +1331,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6482468723534252497, guid: 124bb4ec4462a744fba2c1138c34f829, type: 3}
       propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6482468723534252497, guid: 124bb4ec4462a744fba2c1138c34f829, type: 3}
+      propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6571172715756053044, guid: 124bb4ec4462a744fba2c1138c34f829, type: 3}
@@ -1763,6 +1767,10 @@ PrefabInstance:
     - target: {fileID: 6482468723534252497, guid: 124bb4ec4462a744fba2c1138c34f829, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6482468723534252497, guid: 124bb4ec4462a744fba2c1138c34f829, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6571172715756053044, guid: 124bb4ec4462a744fba2c1138c34f829, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2554,5 +2562,5 @@ SceneRoots:
   - {fileID: 1418173155210053902}
   - {fileID: 666235079}
   - {fileID: 1200318526}
-  - {fileID: 422569670}
   - {fileID: 812341960}
+  - {fileID: 422569670}
