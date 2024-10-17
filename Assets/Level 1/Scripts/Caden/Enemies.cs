@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class Enemies : MonoBehaviour {
 
     [SerializeField] float health, maxHealth = 10f;
 
-    [SerializeField] float moveSpeed = 5f;
-    Rigidbody2D rb;
-    Transform target;
-    Vector2 moveDirection;
+    public float moveSpeed = 5f;
+    public float jumpForce = 5f;
+    public Rigidbody2D rb;
+    //public AIPath aiPath;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        
     }
 
 
@@ -21,33 +22,30 @@ public class Enemies : MonoBehaviour {
     {
         //Set enemy health when the game starts
         health = maxHealth;
-        target = GameObject.Find("Player").transform;
+        
+
+        rb = GetComponent<Rigidbody2D>();
+
+        var enemies = GameObject.Find("Enemies").GetComponent<Enemies>();
+        var enemy = GameObject.Find("Enemy").GetComponent<Enemies>();
+        enemies.transform.parent = enemy.transform;
+
+
     }
 
 
     private void Update()
     {
-        if (target)
-        {
-            Vector3 direction = (target.position-transform.position).normalized;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            rb.rotation = angle;
-            moveDirection = direction;
-        }
+        
     }
 
 
     private void FixedUpdate()
     {
-        if (target)
-        {
-            rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
-        }
+        
     }
 
 
 
-    public void EnemyPathing() {
-        Debug.Log("Enemy pathing feature coming soon");
-    }
+    
 }
