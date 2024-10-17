@@ -9,26 +9,28 @@ public class GoalItems : CollectibleHandler
     public GameObject knife;
     public GameObject hooks;
 
-
-
-    //function to init each goal item
-    void initItems() {
-        //Instantiate(stillsuit, GetComponent<CollectibleHandler>().spawnPos, Quaternion.identity); //red
-        Instantiate(stillsuit, new Vector2(-2,0), Quaternion.identity); //red
-        Instantiate(tent, new Vector2(2,0), Quaternion.identity); //black
-        Instantiate(knife, new Vector2(2,-2), Quaternion.identity); //green
-        Instantiate(hooks, new Vector2(-2,2), Quaternion.identity); //white
-    }
-
-    void Start() {
+    void Start() 
+    {
         initItems();
     }
 
-    /*void OnTriggerEnter2D(Collider2D other) {
+    //function to init each goal item
+    void initItems() 
+    {
+        //Instantiate(stillsuit, GetComponent<CollectibleHandler>().spawnPos, Quaternion.identity); //red
+        Instantiate(stillsuit, new Vector2(posX,posY), Quaternion.identity); //red //Random.Range(-2,2),Random.Range(-2,2)
+        Instantiate(tent, new Vector2(posX+11,posY), Quaternion.identity); //black
+        Instantiate(knife, new Vector2(posX+3,posY+3), Quaternion.identity); //green
+        Instantiate(hooks, new Vector2(posX-2,posY-3), Quaternion.identity); //white
+    }
+
+    void OnTriggerEnter2D(Collider2D other) 
+    {
         if (other.CompareTag("Player")) {
-            //gm.GetComponent<GameManager>().AddToInventory(stillsuit);
+            //gm.GetComponent<GameManager>().AddToInventory(other); //theoretically, other represents the trigger player collided with
             Debug.Log("item collected :)");
         }
-    }*/
+        Debug.Log("collision with" + other.name);
+    }
 
 }
