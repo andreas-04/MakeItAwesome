@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    private float survivalTime = 60f; // 1 minute in seconds
+    private float survivalTime = 60f;
     private float startTime;
     private bool hasSurvived = false;
     private int currentLevel = 0;
@@ -18,7 +18,7 @@ public class LevelLoader : MonoBehaviour
 
     private void Update()
     {
-        if (!hasSurvived && Time.time - startTime >= survivalTime && currentLevel == 1)
+        if (!hasSurvived && Time.time - startTime >= survivalTime && currentLevel == 2)
         {
             LoadNextLevel();
         }
@@ -26,7 +26,7 @@ public class LevelLoader : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && currentLevel == 0)
+        if (other.CompareTag("Player") && currentLevel != 2)
         {
             hasSurvived = true;
             LoadNextLevel();
