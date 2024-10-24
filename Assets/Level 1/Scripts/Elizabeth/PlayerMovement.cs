@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         Jump();
+        Attack();
 
         float verticalVelocity = rb.velocity.y;
 
@@ -66,8 +67,21 @@ public class PlayerMovement : MonoBehaviour
             grounded = false;
         }
     }
-
-    public float CalculateSpeed(float distance, float time)
+    private void Attack()
+    {
+        // Check if the attack button is pressed
+        if (Input.GetKeyDown(KeyCode.F)) 
+        {
+            playerAnimationController.PlaySwordAttack();
+           
+        }
+        if (Input.GetKeyDown(KeyCode.C)) // Change to your preferred attack key
+        {
+            playerAnimationController.PlayStickAttack();
+            
+        }
+    }
+        public float CalculateSpeed(float distance, float time)
     {
         // another function call
         if (time <= 0) return 0;

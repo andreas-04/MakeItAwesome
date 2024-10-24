@@ -43,4 +43,14 @@ public class PlayerAnimationController : MonoBehaviour
     {
         animator.SetTrigger("DeadTrigger"); // Using a trigger parameter for death
     }
+    //Method to trigger the Stick attack animation
+    public void PlayStickAttack()
+    {
+        animator.SetTrigger("StickTrigger"); // Using a trigger parameter for  stick attack
+    }
+    //Method to trigger the Sword attack animation
+    public void PlaySwordAttack()
+    {
+        animator.SetTrigger("SwordTrigger"); // Using a trigger parameter for sword attack
+    }
 }
