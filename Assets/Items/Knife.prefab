@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6180507922170343415}
-  - component: {fileID: 3875766431436703919}
   - component: {fileID: 4578055544380163848}
   - component: {fileID: -3672166687324364699}
+  - component: {fileID: -4852084637854576650}
   m_Layer: 0
   m_Name: Knife
   m_TagString: Item
@@ -34,19 +34,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3875766431436703919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 692089290211845311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55725db948c41f84b9720f77657fe92a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPos: {x: -4, y: -3}
 --- !u!212 &4578055544380163848
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -87,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0, g: 1, b: 0.0064172745, a: 1}
   m_FlipX: 0
@@ -144,3 +131,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &-4852084637854576650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692089290211845311}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63c6a4ece2e66b84e87afa1a071ae894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPos: {x: 0, y: 0}
+  stillsuit: {fileID: 692089290211845311, guid: fc17848186dcb694a9d4c59ba9a8cdd7, type: 3}
+  tent: {fileID: 692089290211845311, guid: de2b77b3bc9ade5438f6e54abca306f1, type: 3}
+  knife: {fileID: 692089290211845311}
+  hooks: {fileID: 692089290211845311, guid: fc46627f372258f4c90f8af0a354014e, type: 3}

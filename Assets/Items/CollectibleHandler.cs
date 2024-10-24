@@ -12,21 +12,25 @@ public class CollectibleHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //initItems();
+        CollectibleHandler goalitems = GetComponent<GoalItems>();
+        CollectibleHandler powerups = GetComponent<Powerups>();
+        goalitems.v_InitItems();
+        powerups.v_InitItems();
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void OnTriggerEnter2D(Collider2D other) 
     {
-        
+        Debug.Log("CH collision");
     }
 
-    
-
-    public virtual void initItems() 
+    public virtual void v_InitItems() 
     {
         //call functions to init goal and powerups
-        //Instantiate(item, item.GetComponent<CollectibleHandler>().spawnPos, Quaternion.identity); 
         Debug.Log("init called from CH");
+    }
+
+    public void disableItem(GameObject go)
+    {
+        go.SetActive(false);
     }
 }

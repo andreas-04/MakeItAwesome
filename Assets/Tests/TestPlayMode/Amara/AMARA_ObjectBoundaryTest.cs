@@ -5,7 +5,7 @@ using NUnit.Framework;
 using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
 
-public class ObjectBoundaryTest
+public class AMARA_ObjectBoundaryTest
 {
     private bool sceneLoaded;
     private int maxX = 18, maxY = 8, maxZ = 0;
