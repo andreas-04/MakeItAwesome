@@ -20,7 +20,7 @@ public class PlayerAnimationController : MonoBehaviour
         animator.SetFloat("Speed", Mathf.Abs(speed));
         animator.SetBool("isGrounded", isGrounded);
         animator.SetFloat("VerticalVelocity", verticalVelocity); // For Falling
-        //animator.SetBool("spacePressed", spacebarPressed);
+        animator.SetBool("spacePressed", spacebarPressed);
 
 
     }
@@ -36,5 +36,11 @@ public class PlayerAnimationController : MonoBehaviour
         {
             spriteRenderer.flipX = false; // Face left
         }
+    }
+
+    // Method to trigger the death animation
+    public void PlayDeadAnimation()
+    {
+        animator.SetTrigger("DeadTrigger"); // Using a trigger parameter for death
     }
 }
