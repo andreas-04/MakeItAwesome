@@ -26,6 +26,16 @@ public class PlayerHealth : Subject
         }
     }
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Collision detected with: " + collision.gameObject.name); // Check which object was hit
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            TakeDamage(10);
+            Debug.Log("Player hit by enemy, taking damage");
+        }
+    }
     public void TakeDamage(float damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, startingHealth);  // Keep health between 0 and starting health
