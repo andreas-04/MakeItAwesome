@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         //Sends speed and grounded state to animation script function
         playerAnimationController.UpdateAnimation(moveInput, grounded, verticalVelocity, spacebarPressed);
     }
-    private void Move()
+    public void Move()
     {
         moveInput = Input.GetAxis("Horizontal");
         // Move the player
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         playerAnimationController.FlipSprite(moveInput);
 
     }
-    private void Jump()
+    public void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
