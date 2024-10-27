@@ -4,11 +4,11 @@ using NUnit.Framework;
 using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
 
-public class ElizabethS_BoundaryCeilingTest
+public class ElizabethS_PlayerJumpForceTest
 {
-    private const float ceilingY = -33f;
     private bool sceneLoaded;
-    //Load Scene
+
+    // Load Scene
     [OneTimeSetUp]
     public void OneTimeSetup()
     {
@@ -22,9 +22,10 @@ public class ElizabethS_BoundaryCeilingTest
     }
 
     [UnityTest]
-    public IEnumerator BoundaryCeilingTest()
+    public IEnumerator SpamJumpTest()
     {
         yield return new WaitWhile(() => !sceneLoaded);
+
         var enemy = GameObject.FindGameObjectWithTag("Enemy");
         if (enemy != null)
         {
@@ -42,35 +43,34 @@ public class ElizabethS_BoundaryCeilingTest
 
         // Set the player's position to start grounded
         playerObject.transform.position = new Vector3(-116, -43.4f, 0); // Position is wherever scene Player is
-        
+        playerMovement.grounded = true; // Set grounded state to true
 
-        float initialY = playerObject.transform.position.y; // Track the player's initial Y position for check
+        float initialJumpForce = playerMovement.jumpForce; // Track initial jump force
+        float jumpForce = initialJumpForce; // Initialize jump force variable
 
-        int jumpCount = 0; // counts number of actual jumps
-
-        // Start spamming jumps for 500 frames
-        for (int i = 0; i < 500; i++)
+        // Start spamming jumps until going out of bounds
+        while (true)
         {
             // Check if the player is grounded before jumping
-           
-                rb.velocity = new Vector2(rb.velocity.x, playerMovement.jumpForce);
-                jumpCount++; // Increment the jump count only when grounded
+            if (playerMovement.grounded)
+            {
+                Debug.Log($"Jump Foce: {jumpForce}");
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                playerMovement.grounded = false;
+                jumpForce += 5; // Increase jump force
+            }
 
             // Update the frame
             yield return new WaitForFixedUpdate();
 
-            Assert.LessOrEqual(playerObject.transform.position.y, ceilingY,
-                 $"Player exceeded ceiling boundary at Y = {playerObject.transform.position.y}");
-
+            // Check if the player has gone out of bounds
+            if (playerObject.transform.position.y > -33)
+            {
+                break; // Exit the loop if the player has gone out of bounds
+            }
         }
 
-       
-      
-        // Assert that the player has jumped at least once
-        Assert.IsTrue(jumpCount > 0, "Player should have jumped at least once during the test.");
-        Debug.Log($"Total Jumps: {jumpCount}");
-
-        
-        Debug.Log("Test passed: Player Stayed below the ceiling.");
+        // Assert that the player went out of bounds
+        Assert.IsFalse(playerObject.transform.position.y > -33, "Player went out of bounds.");
     }
 }
