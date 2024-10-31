@@ -40,7 +40,7 @@ public class ElizabethS_FistAttackSpamTest
         playerObject.transform.position = new Vector3(-6, -4f, 0);
 
         // Change weapon to FistAttack before spamming
-        playerAttack.ChangeWeapon(new FistAttack());
+        playerAttack.ChangeWeapon(new Attack());
 
         int attackCount = 0; // Track how many times we have attacked
 

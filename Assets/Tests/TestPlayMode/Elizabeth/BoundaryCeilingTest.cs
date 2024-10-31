@@ -25,11 +25,7 @@ public class ElizabethS_BoundaryCeilingTest
     public IEnumerator BoundaryCeilingTest()
     {
         yield return new WaitWhile(() => !sceneLoaded);
-        var enemy = GameObject.FindGameObjectWithTag("Enemy");
-        if (enemy != null)
-        {
-            enemy.SetActive(false);
-        }
+        
 
         // Find the GameObject Objects
         var playerObject = GameObject.Find("Player");

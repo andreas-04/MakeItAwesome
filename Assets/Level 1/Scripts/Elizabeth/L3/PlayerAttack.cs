@@ -7,7 +7,7 @@ using UnityEngine;
 
         private void Start()
         {
-            currentAttack = new FistAttack(); // Default attack...maybe?
+            currentAttack = new Attack(); // Default attack...
             playerAnimationController = GetComponent<PlayerAnimationControllerLvl3>();
         }
 
@@ -29,7 +29,7 @@ using UnityEngine;
             //Equips weapons
             if (Input.GetKeyDown(KeyCode.R))
             {
-                ChangeWeapon(new FistAttack());
+                ChangeWeapon(new Attack());
                 Debug.Log("Equipped Fist Attack");
             }
             if (Input.GetKeyDown(KeyCode.C))
