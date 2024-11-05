@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 5f;
     public float moveInput;
     public Rigidbody2D rb;
-    
+
     bool spacebarPressed = true;
     //Make Animations Smoother Later
 
@@ -32,6 +32,11 @@ public class PlayerMovement : MonoBehaviour
 
         float verticalVelocity = rb.velocity.y;
         grounded = isGrounded();
+
+        if (grounded)
+        {
+            AudioManager.Instance.PlaySFX(0);
+        }
 
         //Sends speed and grounded state to animation script function
         playerAnimationController.UpdateAnimation(moveInput, grounded, verticalVelocity, spacebarPressed);
@@ -76,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
-   
+
     private void OnDrawGizmos()
     {
         // Visualize the BoxCast in the Editor
