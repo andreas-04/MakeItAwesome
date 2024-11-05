@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour
 {
+
+    // TODO: Create dynamic binding with subclass with virtual for PlaySFX() 
     public static AudioManager Instance { get; private set; }
 
     public AudioSource musicSource; // AudioSource for background music
