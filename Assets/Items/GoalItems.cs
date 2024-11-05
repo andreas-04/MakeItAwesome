@@ -9,7 +9,7 @@ public class GoalItems : CollectibleHandler
     public GameObject knife;
     public GameObject hooks;
 
-    public override void OnTriggerEnter2D(Collider2D other) //enemies also trigger collisions so thats good to know 
+    void OnTriggerEnter2D(Collider2D other) //enemies also trigger collisions so thats good to know 
     {
         if (other.CompareTag("Player")) {
             //gm.GetComponent<GameManager>().AddToInventory(this);
@@ -20,6 +20,7 @@ public class GoalItems : CollectibleHandler
 
     //function to init each goal item
     public override void v_InitItems() 
+    //public  void v_InitItems() 
     {
         //Instantiate(stillsuit, GetComponent<CollectibleHandler>().spawnPos, Quaternion.identity); //red
         Instantiate(stillsuit, new Vector2(posX-10,posY-55), Quaternion.identity); //red -10 -55

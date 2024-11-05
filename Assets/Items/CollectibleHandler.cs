@@ -9,6 +9,8 @@ public class CollectibleHandler : MonoBehaviour
     [SerializeField] public static float posX = 0f; //i will add functions to randomize this later
     [SerializeField] public static float posY = 0f;
 
+    //list of possible item spawn points
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +20,8 @@ public class CollectibleHandler : MonoBehaviour
         powerups.v_InitItems();
     }
 
-    public virtual void OnTriggerEnter2D(Collider2D other) 
-    {
-        Debug.Log("CH collision");
-    }
-
     public virtual void v_InitItems() 
+    //public void v_InitItems() 
     {
         //call functions to init goal and powerups
         Debug.Log("init called from CH");
