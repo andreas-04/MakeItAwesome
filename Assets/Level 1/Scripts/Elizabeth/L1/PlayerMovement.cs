@@ -19,8 +19,11 @@ public class PlayerMovement : MonoBehaviour
     public bool grounded = true;
     private PlayerAnimationController playerAnimationController; //Controls animation
 
+    private SFXManager sfxManager;
     void Start()
     {
+        // sfxManager = SFXManager.Instance;
+        SFXManager sfxManager = AudioManager.Instance as SFXManager;
         rb = GetComponent<Rigidbody2D>();
         playerAnimationController = GetComponent<PlayerAnimationController>(); // Reference the animation script
     }
@@ -35,7 +38,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (grounded)
         {
-            AudioManager.Instance.PlaySFX(0);
+            if (sfxManager != null)
+            {
+                // Play the sound effect at index 0
+                sfxManager.PlaySFX(0);
+            }
         }
 
         //Sends speed and grounded state to animation script function
