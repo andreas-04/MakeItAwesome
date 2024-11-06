@@ -1,25 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
     public float jumpForce = 5f;
-    public float moveInput;
     public Rigidbody2D rb;
 
-    bool spacebarPressed = true;
-    //Make Animations Smoother Later
+    public bool grounded = true;
+    private bool isJumping = false;  // Track whether the player is jumping
+    private PlayerAnimationController playerAnimationController; // Controls animation
 
-    //For Grounded Check
+    // For Grounded Check
     public Vector2 boxSize;
     public float castDistance;
     public LayerMask groundLayer;
-    public bool grounded = true;
-    private PlayerAnimationController playerAnimationController; //Controls animation
 
-    void Start()
+    // Joystick reference for mobile controls (assign in the Inspector if needed)
+    public Joystick joystick;
+
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerAnimationController = GetComponent<PlayerAnimationController>(); // Reference the animation script
@@ -28,66 +27,85 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         Move();
-        Jump();
 
         float verticalVelocity = rb.velocity.y;
         grounded = isGrounded();
 
+        // Update the animation state (grounded, jumping, etc.)
+        playerAnimationController.UpdateAnimation(GetMoveInput(), grounded, verticalVelocity, isJumping);
+
+        // Handle jump input for both desktop and mobile
+        if (grounded && (Input.GetKeyDown(KeyCode.Space) || joystick.Vertical > 0.5f))
+        {
+            Jump();
+        }
+
         if (grounded)
         {
-            // TODO: Play sound affect here
+            //TODO: Play sound affect here
         }
-
-        //Sends speed and grounded state to animation script function
-        playerAnimationController.UpdateAnimation(moveInput, grounded, verticalVelocity, spacebarPressed);
     }
+
     public void Move()
     {
-        moveInput = Input.GetAxis("Horizontal");
-        // Move the player
+        float moveInput = GetMoveInput();
+
+        // Move the player horizontally
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
-        //Flip Sprite 
+        // Flip Sprite based on movement direction
         playerAnimationController.FlipSprite(moveInput);
-
     }
-    public void Jump()
+
+    private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            spacebarPressed = true;
-        }
+        // Set the player as jumping
+        isJumping = true;
+
+        // Apply upward force to make the player jump
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
-    //Up and Down hills smoother
+    private float GetMoveInput()
+    {
+#if UNITY_IOS || UNITY_ANDROID
+        return joystick.Horizontal;  // Mobile joystick input
+#else
+            return Input.GetAxis("Horizontal");  // Desktop keyboard input
+#endif
+    }
+
     public bool isGrounded()
     {
-        // Cast two rays from the left and right edges of the player to check for ground
-        float offset = 0.5f; // Distance from the center to the edges
+        float offset = 0.5f;
         Vector2 leftRayOrigin = new Vector2(transform.position.x - offset, transform.position.y);
         Vector2 rightRayOrigin = new Vector2(transform.position.x + offset, transform.position.y);
 
-        // Cast rays downwards
         RaycastHit2D leftRayHit = Physics2D.Raycast(leftRayOrigin, Vector2.down, castDistance, groundLayer);
         RaycastHit2D rightRayHit = Physics2D.Raycast(rightRayOrigin, Vector2.down, castDistance, groundLayer);
 
-        // Return true if either ray hits the ground
-        if (leftRayHit.collider != null || rightRayHit.collider != null)
-        {
-            return true;
-        }
-
-        return false;
+        return leftRayHit.collider != null || rightRayHit.collider != null;
     }
-
 
     private void OnDrawGizmos()
     {
-        // Visualize the BoxCast in the Editor
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position - transform.up * castDistance, boxSize);
     }
+
+    private void OnLanding()
+    {
+        // Reset jumping state when landing
+        isJumping = false;
+    }
+
+    private void OnEnable()
+    {
+        // Optional: Reset the jump state when enabling the script.
+        isJumping = false;
+    }
+
+
 
     public float CalculateSpeed(float distance, float time)
     {
