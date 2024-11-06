@@ -13,6 +13,7 @@ TagManager:
   - HealthUI
   - Enemy
   - HealthCanvas
+  - Water
   layers:
   - Default
   - TransparentFX

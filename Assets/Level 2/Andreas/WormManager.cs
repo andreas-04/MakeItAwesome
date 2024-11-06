@@ -37,21 +37,26 @@ public class BaseWormManager : MonoBehaviour
         
         if (countUp >= distanceBetween)
         {
-            GameObject temp1 = Instantiate(bodyParts[0], markM.markerList[0].position, markM.markerList[0].rotation, transform);
-            if (!temp1.GetComponent<MarkerManager>())
-                temp1.AddComponent<MarkerManager>();
-            if (!temp1.GetComponent<Rigidbody2D>())
-            {
-                temp1.AddComponent<Rigidbody2D>();
-                temp1.GetComponent<Rigidbody2D>().gravityScale = 0;
-                temp1.GetComponent<Rigidbody2D>().collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-            }
-            wormBody.Add(temp1);
-            bodyParts.RemoveAt(0);
-            temp1.GetComponent<MarkerManager>().ClearMarkerList();
-            countUp = 0;
+            AddBodyPart(markM);
         }
-    } 
+    }
+    protected void AddBodyPart(MarkerManager markM)
+    {
+        GameObject temp1 = Instantiate(bodyParts[0], markM.markerList[0].position, markM.markerList[0].rotation, transform);
+        if (!temp1.GetComponent<MarkerManager>())
+            temp1.AddComponent<MarkerManager>();
+        if (!temp1.GetComponent<Rigidbody2D>())
+        {
+            temp1.AddComponent<Rigidbody2D>();
+            temp1.GetComponent<Rigidbody2D>().gravityScale = 0;
+            temp1.GetComponent<Rigidbody2D>().collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        }
+        wormBody.Add(temp1);
+        bodyParts.RemoveAt(0);
+        temp1.GetComponent<MarkerManager>().ClearMarkerList();
+        countUp = 0;
+    }
+    
 }
 
 // Derived class that overrides CreateBodyParts
@@ -91,32 +96,42 @@ public class WormManager : BaseWormManager
             }
         }
     }
-
-protected override void CreateBodyParts()
-{
-    if (bodyParts.Count < 2 || bodyParts[0] == null || bodyParts[1] == null)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.LogError("Please assign at least two valid prefabs to 'bodyParts' in the Inspector.");
-        return;
-    }
-
-    while (wormBody.Count < 2)
-    {
-        GameObject newSegment = Instantiate(bodyParts[0], transform.position, transform.rotation, transform);
-        if (!newSegment.GetComponent<MarkerManager>())
-            newSegment.AddComponent<MarkerManager>();
-        if (!newSegment.GetComponent<Rigidbody2D>())
+        if (collision.CompareTag("Water"))
         {
-            var rb = newSegment.AddComponent<Rigidbody2D>();
-            rb.gravityScale = 0;
-            rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+            Debug.Log("Water");
+            AddBodyPart(wormBody[wormBody.Count - 1].GetComponent<MarkerManager>());
+            collision.gameObject.GetComponent<WaterManager>().SpawnNewWater();
         }
-
-        wormBody.Add(newSegment);
-        bodyParts.RemoveAt(0);
-
-        newSegment.GetComponent<MarkerManager>().ClearMarkerList();
     }
-}
+    
+
+// protected override void CreateBodyParts()
+// {
+//     if (bodyParts.Count < 2 || bodyParts[0] == null || bodyParts[1] == null)
+//     {
+//         Debug.LogError("Please assign at least two valid prefabs to 'bodyParts' in the Inspector.");
+//         return;
+//     }
+
+//     while (wormBody.Count < 2)
+//     {
+//         GameObject newSegment = Instantiate(bodyParts[0], transform.position, transform.rotation, transform);
+//         if (!newSegment.GetComponent<MarkerManager>())
+//             newSegment.AddComponent<MarkerManager>();
+//         if (!newSegment.GetComponent<Rigidbody2D>())
+//         {
+//             var rb = newSegment.AddComponent<Rigidbody2D>();
+//             rb.gravityScale = 0;
+//             rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+//         }
+
+//         wormBody.Add(newSegment);
+//         bodyParts.RemoveAt(0);
+
+//         newSegment.GetComponent<MarkerManager>().ClearMarkerList();
+//     }
+// }
 
 }
