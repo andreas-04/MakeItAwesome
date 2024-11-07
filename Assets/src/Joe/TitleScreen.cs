@@ -15,6 +15,7 @@ public class TitleScreenManager : MonoBehaviour
 
     void Start()
     {
+        AudioManager.Instance.PlayAudio(0);
         // Hook up the StartGame method to the start button's onClick event
         startButton.onClick.AddListener(StartGame);
 
