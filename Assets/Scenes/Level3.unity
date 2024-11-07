@@ -416,6 +416,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6571172715756053044, guid: 381c53432028b42d9926ee1b2248fd74, type: 3}
   m_PrefabInstance: {fileID: 1817699536}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &753692358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 753692361}
+  - component: {fileID: 753692360}
+  - component: {fileID: 753692359}
+  m_Layer: 0
+  m_Name: AttackIcon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &753692359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753692358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.9339623, g: 0.8744114, b: 0.5242524, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &753692360
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753692358}
+  m_CullTransparentMesh: 1
+--- !u!224 &753692361
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753692358}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1400426628}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -36.375183, y: 30.960999}
+  m_SizeDelta: {x: 72.7504, y: 61.922}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &959487562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -573,6 +648,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1498694252}
+  - {fileID: 753692361}
   m_Father: {fileID: 1721128010}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -747,7 +823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1252439238836965139, guid: e395b5d1c548be44a86ec623a9a3a874, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1252439238836965139, guid: e395b5d1c548be44a86ec623a9a3a874, type: 3}
       propertyPath: m_AnchorMax.y
@@ -755,7 +831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1252439238836965139, guid: e395b5d1c548be44a86ec623a9a3a874, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1252439238836965139, guid: e395b5d1c548be44a86ec623a9a3a874, type: 3}
       propertyPath: m_AnchorMin.y
@@ -799,7 +875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1252439238836965139, guid: e395b5d1c548be44a86ec623a9a3a874, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 950
+      value: -144.50519
       objectReference: {fileID: 0}
     - target: {fileID: 1252439238836965139, guid: e395b5d1c548be44a86ec623a9a3a874, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1131,6 +1207,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4f7d74019cc8c4a90aa62c0fe53af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackIcon: {fileID: 753692359}
+  StickAttack: {fileID: 1373795538, guid: 744dc9d2315923d4491c7da657d415ca, type: 3}
+  SwordAttack: {fileID: 21300000, guid: 596422888865c564195b61b37e11f667, type: 3}
+  FistAttack: {fileID: 21300000, guid: 2dcfa8c82ed71864987f02524707e4d8, type: 3}
 --- !u!114 &2003887348
 MonoBehaviour:
   m_ObjectHideFlags: 0
