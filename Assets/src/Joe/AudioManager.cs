@@ -24,6 +24,8 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
+        // TODO: Will have dynamic binding here
+
         // Initialize audio players
         var backgroundAudio = new AudioPlayer.BackgroundAudio();
         backgroundAudio.audioSource = backgroundMusicSource;
