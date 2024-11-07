@@ -9,8 +9,10 @@ using System.Diagnostics;
 public class AMARA_StressTest
 {
     private bool sceneLoaded;
-    private int numObjects = 1000;
-    private float spawnTime = 1.0f;
+    private float frameRate = Time.frameCount / Time.time;
+    private GameObject Stillsuit;
+    private bool frameDrop = false;
+    private int itemsSpawned = 0;
 
     [OneTimeSetUp]
     public void OneTimeSetup()
@@ -25,27 +27,20 @@ public class AMARA_StressTest
     }
 
     [UnityTest]
-    public IEnumerator AMARA_StressTestWithEnumeratorPasses()
+    public IEnumerator AMARA_ObjectStressTest()
     {
         yield return new WaitWhile(() => sceneLoaded == false);
-
-        // Start the stopwatch
-        Stopwatch stopwatch = new Stopwatch();
-        stopwatch.Start();
+        //var item = GameObject.Find("Stillsuit");
 
         // Spawn the objects
-        for (int i = 0; i < numObjects; i++)
-        {
-            GameObject stillsuit = new GameObject("Stillsuit");
+        for(int i = 0; i < 1000000000000000; i++) {
+            GameObject.Instantiate(Resources.Load("Assets/Items/Stillsuit") as GameObject);
+            itemsSpawned++;
+            UnityEngine.Debug.Log("fps: " + frameRate + " items in game: " + itemsSpawned);
+            if(frameRate < 20) {
+                frameDrop = true;
+            }
         }
-
-        // Stop the stopwatch
-        stopwatch.Stop();
-
-        float timeTaken = stopwatch.ElapsedMilliseconds / 1000f; // Convert to seconds
-        //UnityEngine.Debug.Log($"Time taken to spawn {objectCount} objects: {timeTaken} seconds");
-
-        // Assert that the time taken is within the acceptable limit
-        Assert.LessOrEqual(timeTaken, spawnTime, $"Object spawning took too long: {timeTaken} seconds");
+        Assert.IsFalse(frameDrop, "Fps dropped below 20");
     }
 }

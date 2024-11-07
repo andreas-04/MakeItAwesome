@@ -5,15 +5,15 @@ using UnityEngine;
 public class Powerups : CollectibleHandler
 {
     public GameObject water;
+    [SerializeField] public float jumpboost = 10f;
 
     void OnTriggerEnter2D(Collider2D other) 
     {
-        Debug.Log("Collision detected. " + gameObject + "collided with " + other.name);
+        //Debug.Log("Collision detected. " + gameObject + "collided with " + other.name);
         if (other.CompareTag("Player")) {
-            //apply a powerup of some sort (speed health i dont remember)
             disableItem(gameObject);
-            Debug.Log("powerup collected :)");
-            GetComponent<PlayerMovement>().jumpForce += 10f;
+            //Debug.Log("powerup collected :)");
+            other.GetComponent<PlayerMovement>().jumpForce += jumpboost;
         }
     }
     

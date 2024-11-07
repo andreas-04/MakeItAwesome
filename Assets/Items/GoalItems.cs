@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class GoalItems : CollectibleHandler
 {
-    public GameObject stillsuit; //singular item temporarily
+    public GameObject stillsuit;
     public GameObject tent;
     public GameObject knife;
     public GameObject hooks;
+    private int itemsCollected = 0;
 
     void OnTriggerEnter2D(Collider2D other) //enemies also trigger collisions so thats good to know 
     {
         if (other.CompareTag("Player")) {
             //gm.GetComponent<GameManager>().AddToInventory(this);
             disableItem(gameObject);
-            Debug.Log("item collected :)");
+            itemsCollected++;
+            //Debug.Log("item collected: " + gameObject + "num collected: " + itemsCollected);
         }
     }
 

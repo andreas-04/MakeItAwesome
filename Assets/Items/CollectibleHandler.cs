@@ -10,6 +10,22 @@ public class CollectibleHandler : MonoBehaviour
     [SerializeField] public static float posY = 0f;
 
     //list of possible item spawn points
+    /*
+        -10,-55
+        -21,-55
+        -57,-26
+        58,-53
+        111,-43
+        -86,-35
+        -46,-21
+        -13,-24
+        0,-23
+        31,-29
+        31,-18
+        63,-35
+        130,-50
+        98,-25
+    */
 
     // Start is called before the first frame update
     void Start()
