@@ -35,7 +35,8 @@ public class TitleScreenManager : MonoBehaviour
     public void StartGame()
     {
         // Load the starting scene by name or index
-        SceneManager.LoadScene("Level1"); // Replace with your scene's name or index
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Destroy(gameObject);
     }
 
     // Method to show the controls panel
