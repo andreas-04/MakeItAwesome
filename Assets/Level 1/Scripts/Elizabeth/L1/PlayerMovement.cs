@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,11 +18,16 @@ public class PlayerMovement : MonoBehaviour
 
     // Joystick reference for mobile controls (assign in the Inspector if needed)
     public Joystick joystick;
-
+    public Button attackButton;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerAnimationController = GetComponent<PlayerAnimationController>(); // Reference the animation script
+
+        if (attackButton != null)
+        {
+            attackButton.onClick.AddListener(PerformAttack);  // Trigger attack when button is pressed
+        }
     }
 
     private void Update()
@@ -42,11 +48,18 @@ public class PlayerMovement : MonoBehaviour
 
         if (grounded)
         {
-            //TODO: Play sound affect here
+            //TODO: Play sound effect here
+        }
+
+        // Handle attack input (for fist attack)
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)) // Example key for attack (X)
+        {
+            PerformAttack();
+            Debug.Log("No Attack? ");
         }
     }
 
-    public void Move()
+    private void Move()
     {
         float moveInput = GetMoveInput();
 
@@ -93,20 +106,11 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireCube(transform.position - transform.up * castDistance, boxSize);
     }
 
-    private void OnLanding()
+    private void PerformAttack()
     {
-        // Reset jumping state when landing
-        isJumping = false;
+        // Notify the animation controller to play the fist attack animation
+        playerAnimationController.PlayFistAttack();
     }
-
-    private void OnEnable()
-    {
-        // Optional: Reset the jump state when enabling the script.
-        isJumping = false;
-    }
-
-
-
     public float CalculateSpeed(float distance, float time)
     {
         // another function call

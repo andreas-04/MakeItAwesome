@@ -21,8 +21,6 @@ public class PlayerAnimationController : MonoBehaviour
         animator.SetBool("isGrounded", isGrounded);
         animator.SetFloat("VerticalVelocity", verticalVelocity); // For Falling
         animator.SetBool("spacePressed", spacebarPressed);
-
-
     }
 
     // This function handles flipping the sprite direction based on movement direction
@@ -38,19 +36,15 @@ public class PlayerAnimationController : MonoBehaviour
         }
     }
 
+    // Method to trigger the fist attack animation
+    public void PlayFistAttack()
+    {
+        animator.SetTrigger("FistTrigger"); // Trigger the fist attack animation
+    }
+
     // Method to trigger the death animation
     public void PlayDeadAnimation()
     {
         animator.SetTrigger("DeadTrigger"); // Using a trigger parameter for death
-    }
-    //Method to trigger the Stick attack animation
-    public void PlayStickAttack()
-    {
-        animator.SetTrigger("StickTrigger"); // Using a trigger parameter for  stick attack
-    }
-    //Method to trigger the Sword attack animation
-    public void PlaySwordAttack()
-    {
-        animator.SetTrigger("SwordTrigger"); // Using a trigger parameter for sword attack
     }
 }
