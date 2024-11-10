@@ -10,7 +10,8 @@ public class Enemies : MonoBehaviour {
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
     public Rigidbody2D rb;
-    //public AIPath aiPath;
+    private SpriteRenderer spriteRenderer;
+    
 
     private void Awake()
     {
@@ -26,9 +27,10 @@ public class Enemies : MonoBehaviour {
 
         rb = GetComponent<Rigidbody2D>();
 
-        var enemies = GameObject.Find("Enemies").GetComponent<Enemies>();
+        
         var enemy = GameObject.Find("Enemy").GetComponent<Enemies>();
-        enemies.transform.parent = enemy.transform;
+        var player = GameObject.Find("Player").GetComponent<PlayerMovement>();
+
 
 
     }
@@ -36,9 +38,12 @@ public class Enemies : MonoBehaviour {
 
     private void Update()
     {
-        
-    }
 
+        
+
+
+
+    }
 
     private void FixedUpdate()
     {
