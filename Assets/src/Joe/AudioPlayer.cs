@@ -5,50 +5,38 @@ public class AudioPlayer
 {
     public AudioSource audioSource; // AudioSource for playing audio
 
-    public virtual void Play()
+    public List<AudioClip> audioClips; // List to hold audio clips
+
+    public virtual void Play(int clip)
+    // public void Play(int clip)
     {
-        if (audioSource != null && audioSource.clip != null)
-        {
-            audioSource.Play();
-            Debug.Log("Playing audio");
-        }
-        else
-        {
-            Debug.LogWarning("AudioSource or AudioClip is not set");
-        }
+        Debug.Log("Playing superclass audio");
+        audioSource.clip = audioClips[0];
+        audioSource.Play();
+
     }
 
     public class BackgroundAudio : AudioPlayer
     {
-        public override void Play()
+        public override void Play(int clip)
+        // public void Play(int clip)
         {
-            if (audioSource != null && audioSource.clip != null)
-            {
-                audioSource.loop = true;
-                audioSource.Play();
-                Debug.Log("Playing background audio");
-            }
-            else
-            {
-                Debug.LogWarning("AudioSource or AudioClip is not set");
-            }
+            Debug.Log("Playing background music");
+            audioSource.loop = true;
+            audioSource.clip = audioClips[clip];
+            audioSource.Play();
         }
     }
 
     public class SFXAudio : AudioPlayer
     {
-        public override void Play()
+        public override void Play(int clip)
+        // public void Play(int clip)
         {
-            if (audioSource != null && audioSource.clip != null)
-            {
-                audioSource.loop = false;
-                // audioSource.Play();
-                Debug.Log("Playing SFX audio");
-            }
-            else
-            {
-                Debug.LogWarning("AudioSource or AudioClip is not set");
-            }
+            Debug.Log("Playing SFX audio");
+            audioSource.loop = false;
+            audioSource.clip = audioClips[clip];
+            audioSource.Play();
         }
     }
 }

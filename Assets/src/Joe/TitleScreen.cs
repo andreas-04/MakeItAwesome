@@ -15,7 +15,7 @@ public class TitleScreenManager : MonoBehaviour
 
     void Start()
     {
-        AudioManager.Instance.PlayAudio(0);
+        AudioManager.Instance.PlayAudio(1, 1);
         // Hook up the StartGame method to the start button's onClick event
         startButton.onClick.AddListener(StartGame);
 
@@ -35,6 +35,7 @@ public class TitleScreenManager : MonoBehaviour
     // Method that transitions to the starting scene
     public void StartGame()
     {
+        AudioManager.Instance.PlayAudio(0, 0);
         // Load the starting scene by name or index
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Destroy(gameObject);
@@ -43,6 +44,7 @@ public class TitleScreenManager : MonoBehaviour
     // Method to show the controls panel
     public void ShowControls()
     {
+        AudioManager.Instance.PlayAudio(0, 0);
         // Hide the title screen and show the controls panel
         controlsPanel.SetActive(true);
     }
@@ -50,6 +52,7 @@ public class TitleScreenManager : MonoBehaviour
     // Method to go back to the title screen from the controls panel
     public void BackToTitle()
     {
+        AudioManager.Instance.PlayAudio(0, 0);
         // Hide the controls panel
         controlsPanel.SetActive(false);
     }
@@ -57,6 +60,7 @@ public class TitleScreenManager : MonoBehaviour
     // Method to exit the game
     public void ExitGame()
     {
+        AudioManager.Instance.PlayAudio(0, 0);
         // Quit the application
         Application.Quit();
 
