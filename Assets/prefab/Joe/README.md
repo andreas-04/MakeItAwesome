@@ -1,4 +1,4 @@
-# AudioManager Prefab
+# Audio Prefab
 
 ## Overview
 This prefab is designed to manage audio playback in a Unity project. It contains an `AudioManager` class to control two main audio sources: one for background music and one for sound effects (SFX). The `AudioPlayer` class manages individual audio source playback, with specialized classes for background and SFX audio.

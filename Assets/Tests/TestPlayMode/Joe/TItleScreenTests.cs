@@ -1,157 +1,139 @@
-// using NUnit.Framework;
-// using UnityEngine;
-// using UnityEngine.TestTools;
-// using UnityEngine.UI;
-// using UnityEngine.SceneManagement;
-// using System.Collections;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using NUnit.Framework;
+using UnityEngine.TestTools;
+using UnityEngine.SceneManagement;
 
-// public class TitleScreenManagerTests : MonoBehaviour
-// {
-//     private GameObject titleScreenObject;
-//     private TitleScreenManager titleScreenManager;
-//     private Button startButton;
-//     private Button controlsButton;
-//     private Button exitButton;
-//     private Button backButton;
-//     private GameObject controlsPanel;
 
-//     [SetUp]
-//     public void SetUp()
-//     {
-//         // Load the title screen scene
-//         SceneManager.LoadScene("scenes/TitleScreen");
+public class JOE_TitleScreenPlayModeTests
+{
+    private bool sceneLoaded;
 
-//         // Set up the title screen manager
-//         titleScreenObject = new GameObject();
-//         titleScreenManager = titleScreenObject.AddComponent<TitleScreenManager>();
+    [OneTimeSetUp]
+    public void OneTimeSetup()
+    {
+        SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+        SceneManager.LoadScene("Scenes/TitleScreen", LoadSceneMode.Single);
+    }
 
-//         // Set up buttons and the control panel
-//         startButton = new GameObject().AddComponent<Button>();
-//         controlsButton = new GameObject().AddComponent<Button>();
-//         exitButton = new GameObject().AddComponent<Button>();
-//         backButton = new GameObject().AddComponent<Button>();
-//         controlsPanel = new GameObject();
+    private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        sceneLoaded = true;
+    }
 
-//         // Assign references to the title screen manager
-//         titleScreenManager.startButton = startButton;
-//         titleScreenManager.controlsButton = controlsButton;
-//         titleScreenManager.exitButton = exitButton;
-//         titleScreenManager.backButton = backButton;
-//         titleScreenManager.controlsPanel = controlsPanel;
+    [UnityTest]
+    public IEnumerator StartButtonExists()
+    {
+        yield return new WaitWhile(() => sceneLoaded == false);
+        GameObject startButton = GameObject.Find("Start");
+        Assert.IsNotNull(startButton, "Start button not found in the scene");
+        yield return null;
+    }
 
-//         // Initially hide the controls panel
-//         controlsPanel.SetActive(false);
+    [UnityTest]
+    public IEnumerator StartButtonLoadsGameScene()
+    {
+        yield return new WaitWhile(() => sceneLoaded == false);
+        GameObject startButton = GameObject.Find("Start");
+        Assert.IsNotNull(startButton, "Start button not found in the scene");
 
-//         // Call the Start method to hook up listeners
-//         titleScreenManager.Start();
-//     }
+        // Click the start button
+        startButton.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
 
-//     [TearDown]
-//     public void TearDown()
-//     {
-//         Object.Destroy(titleScreenObject);
-//         Object.Destroy(startButton.gameObject);
-//         Object.Destroy(controlsButton.gameObject);
-//         Object.Destroy(exitButton.gameObject);
-//         Object.Destroy(backButton.gameObject);
-//         Object.Destroy(controlsPanel);
-//     }
+        // Wait for the scene to load
+        yield return new WaitForSeconds(1);
 
-//     [UnityTest]
-//     public IEnumerator StartButton_OnClick_LoadsLevel1()
-//     {
-//         // Simulate button click
-//         startButton.onClick.Invoke();
+        // Check if the active scene is the game scene
+        Assert.AreEqual("ChaniT", SceneManager.GetActiveScene().name);
+    }
 
-//         // Wait a frame for the scene load
-//         yield return null;
+    [UnityTest]
+    public IEnumerator ControlsButtonExists()
+    {
+        yield return new WaitWhile(() => sceneLoaded == false);
+        GameObject startButton = GameObject.Find("Controls");
+        Assert.IsNotNull(startButton, "Controls button not found in the scene");
+        yield return null;
+    }
 
-//         // Check if the scene manager loads the intended scene (mock behavior)
-//         Assert.AreEqual("Scenes/Level1", SceneManager.GetActiveScene().name);
-//     }
+    [UnityTest]
+    public IEnumerator ControlsButtonActivatesControlsPanel()
+    {
+        yield return new WaitWhile(() => sceneLoaded == false);
+        GameObject controlsButton = GameObject.Find("Controls");
+        Assert.IsNotNull(controlsButton, "Controls button not found in the scene");
 
-//     [UnityTest]
-//     public IEnumerator ControlsButton_OnClick_ShowsControlsPanel()
-//     {
-//         // Ensure the controls panel is initially hidden
-//         Assert.IsFalse(controlsPanel.activeSelf);
+        // Click the controls button
+        controlsButton.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
 
-//         // Simulate button click
-//         controlsButton.onClick.Invoke();
+        // Wait for the scene to load
+        yield return new WaitForSeconds(1);
 
-//         // Wait a frame to process the button click
-//         yield return null;
+        GameObject backButton = GameObject.Find("BackButton");
+        Assert.IsNotNull(backButton, "Back button not found in the scene after activating the controls panel");
+        // Wait for a frame to allow the UI to update
+        yield return null;
+    }
 
-//         // Verify that the controls panel is now active
-//         Assert.IsTrue(controlsPanel.activeSelf);
-//     }
+    [UnityTest]
+    public IEnumerator ExitButtonExists()
+    {
+        yield return new WaitWhile(() => sceneLoaded == false);
+        GameObject startButton = GameObject.Find("Exit");
+        Assert.IsNotNull(startButton, "Exit button not found in the scene");
+        yield return null;
+    }
 
-//     [UnityTest]
-//     public IEnumerator BackButton_OnClick_HidesControlsPanel()
-//     {
-//         // Show the controls panel first
-//         controlsPanel.SetActive(true);
+    [UnityTest]
+    public IEnumerator ExitExits()
+    {
+        yield return new WaitWhile(() => sceneLoaded == false);
+        GameObject exitButton = GameObject.Find("Exit");
+        Assert.IsNotNull(exitButton, "Exit button not found in the scene");
 
-//         // Simulate button click
-//         backButton.onClick.Invoke();
+        // Click the exit button
+        exitButton.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
 
-//         // Wait a frame to process the button click
-//         yield return null;
 
-//         // Verify that the controls panel is now hidden
-//         Assert.IsFalse(controlsPanel.activeSelf);
-//     }
+        // Wait for the scene to load
+        yield return new WaitForSeconds(1);
 
-//     [UnityTest]
-//     public IEnumerator ExitButton_OnClick_QuitsGame()
-//     {
-//         // Simulate button click
-//         exitButton.onClick.Invoke();
+        // Clear any existing logs
+        LogAssert.ignoreFailingMessages = true;
+        LogAssert.Expect(LogType.Log, "Game exited");
 
-//         // Wait a frame to process the button click
-//         yield return null;
+        yield return null;
+    }
 
-//         // Since Application.Quit() doesn't work in the editor, we verify via log
-//         LogAssert.Expect(LogType.Log, "Game exited");
-//     }
+    [UnityTest]
+    public IEnumerator ControlsButtonThenBackButtonDeactivatesControlsPanel()
+    {
+        yield return new WaitWhile(() => sceneLoaded == false);
+        GameObject controlsButton = GameObject.Find("Controls");
+        Assert.IsNotNull(controlsButton, "Controls button not found in the scene");
 
-//     [UnityTest]
-//     public IEnumerator ControlsPanel_IsInitiallyHidden()
-//     {
-//         // Verify that the controls panel is hidden at the start
-//         yield return null;
-//         Assert.IsFalse(controlsPanel.activeSelf);
-//     }
+        // Click the controls button
+        controlsButton.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
 
-//     [UnityTest]
-//     public IEnumerator StartButton_Listener_IsAssigned()
-//     {
-//         // Verify that the start button has a listener attached
-//         yield return null;
-//         Assert.IsNotNull(startButton.onClick);
-//     }
+        yield return new WaitForSeconds(1);
 
-//     [UnityTest]
-//     public IEnumerator ControlsButton_Listener_IsAssigned()
-//     {
-//         // Verify that the controls button has a listener attached
-//         yield return null;
-//         Assert.IsNotNull(controlsButton.onClick);
-//     }
+        GameObject controlsPanel = GameObject.Find("ControlsPanel");
+        Assert.IsNotNull(controlsPanel, "Controls panel not found in the scene");
 
-//     [UnityTest]
-//     public IEnumerator ExitButton_Listener_IsAssigned()
-//     {
-//         // Verify that the exit button has a listener attached
-//         yield return null;
-//         Assert.IsNotNull(exitButton.onClick);
-//     }
+        // Check if the controls panel is now active
+        Assert.IsTrue(controlsPanel.activeSelf, "Controls panel is not active after clicking the controls button");
 
-//     [UnityTest]
-//     public IEnumerator BackButton_Listener_IsAssigned()
-//     {
-//         // Verify that the back button has a listener attached
-//         yield return null;
-//         Assert.IsNotNull(backButton.onClick);
-//     }
-// }
+        // Check if the back button exists
+        GameObject backButton = GameObject.Find("BackButton");
+        Assert.IsNotNull(backButton, "Back button not found in the scene after activating the controls panel");
+
+        // Click the back button
+        backButton.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
+
+        yield return new WaitForSeconds(1);
+
+        // Check if the controls panel is now inactive
+        Assert.IsFalse(controlsPanel.activeSelf, "Controls panel is still active after clicking the back button");
+    }
+}
