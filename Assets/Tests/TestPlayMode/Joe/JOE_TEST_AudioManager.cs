@@ -1,98 +1,98 @@
-// // using UnityEngine;
-// // using UnityEngine.TestTools;
-// // using NUnit.Framework;
-// // using System.Collections;
-// // using System.Collections.Generic;
+// using UnityEngine;
+// using UnityEngine.TestTools;
+// using NUnit.Framework;
+// using System.Collections;
+// using System.Collections.Generic;
 
-// // public class JOE_AudioTests
-// // {
-// //     private GameObject audioManagerObject;
-// //     private AudioManager audioManager;
+// public class JOE_AudioTests
+// {
+//     private GameObject audioManagerObject;
+//     private AudioManager audioManager;
 
-// //     [SetUp]
-// //     public void SetUp()
-// //     {
-// //         // Create a new GameObject and add the AudioManager component
-// //         audioManagerObject = new GameObject("AudioManager");
-// //         audioManager = audioManagerObject.AddComponent<AudioManager>();
+//     [SetUp]
+//     public void SetUp()
+//     {
+//         // Create a new GameObject and add the AudioManager component
+//         audioManagerObject = new GameObject("AudioManager");
+//         audioManager = audioManagerObject.AddComponent<AudioManager>();
 
-// //         // Create and assign AudioSource components
-// //         audioManager.sfxSource = audioManagerObject.AddComponent<AudioSource>();
-// //         audioManager.backgroundMusicSource = audioManagerObject.AddComponent<AudioSource>();
+//         // Create and assign AudioSource components
+//         audioManager.sfxSource = audioManagerObject.AddComponent<AudioSource>();
+//         audioManager.backgroundMusicSource = audioManagerObject.AddComponent<AudioSource>();
 
-// //         // Create and assign audio clips
-// //         audioManager.sfxClips = new List<AudioClip> { AudioClip.Create("SFXClip", 44100, 1, 44100, false) };
-// //         audioManager.audioClips = new List<AudioClip> { AudioClip.Create("BackgroundClip", 44100, 1, 44100, false) };
+//         // Create and assign audio clips
+//         audioManager.sfxClips = new List<AudioClip> { AudioClip.Create("SFXClip", 44100, 1, 44100, false) };
+//         audioManager.audioClips = new List<AudioClip> { AudioClip.Create("BackgroundClip", 44100, 1, 44100, false) };
 
-// //         // Initialize the AudioManager
-// //         // audioManager.Awake();
-// //     }
+//         // Initialize the AudioManager
+//         // audioManager.Awake();
+//     }
 
-// //     [TearDown]
-// //     public void TearDown()
-// //     {
-// //         // Destroy the AudioManager GameObject after each test
-// //         Object.Destroy(audioManagerObject);
-// //     }
+//     [TearDown]
+//     public void TearDown()
+//     {
+//         // Destroy the AudioManager GameObject after each test
+//         Object.Destroy(audioManagerObject);
+//     }
 
-// //     [UnityTest]
-// //     public IEnumerator TestPlaySFX()
-// //     {
-// //         // Play the first SFX clip
-// //         audioManager.PlayAudio(0, 0);
+//     [UnityTest]
+//     public IEnumerator TestPlaySFX()
+//     {
+//         // Play the first SFX clip
+//         audioManager.PlayAudio(0, 0);
 
-// //         // Wait for a frame to allow the audio to play
-// //         yield return null;
+//         // Wait for a frame to allow the audio to play
+//         yield return null;
 
-// //         // Assert that the SFX source is playing
-// //         Assert.IsTrue(audioManager.sfxSource.isPlaying);
-// //     }
+//         // Assert that the SFX source is playing
+//         Assert.IsTrue(audioManager.sfxSource.isPlaying);
+//     }
 
-// //     [UnityTest]
-// //     public IEnumerator TestPlayBackgroundMusic()
-// //     {
-// //         // Play the first background music clip
-// //         audioManager.PlayAudio(1, 0);
+//     [UnityTest]
+//     public IEnumerator TestPlayBackgroundMusic()
+//     {
+//         // Play the first background music clip
+//         audioManager.PlayAudio(1, 0);
 
-// //         // Wait for a frame to allow the audio to play
-// //         yield return null;
+//         // Wait for a frame to allow the audio to play
+//         yield return null;
 
-// //         // Assert that the background music source is playing
-// //         Assert.IsTrue(audioManager.backgroundMusicSource.isPlaying);
-// //     }
+//         // Assert that the background music source is playing
+//         Assert.IsTrue(audioManager.backgroundMusicSource.isPlaying);
+//     }
 
-// //     [UnityTest]
-// //     public IEnumerator TestStopSFX()
-// //     {
-// //         // Play the first SFX clip
-// //         audioManager.PlayAudio(0, 0);
+//     [UnityTest]
+//     public IEnumerator TestStopSFX()
+//     {
+//         // Play the first SFX clip
+//         audioManager.PlayAudio(0, 0);
 
-// //         // Wait for a frame to allow the audio to play
-// //         yield return null;
+//         // Wait for a frame to allow the audio to play
+//         yield return null;
 
-// //         // Stop the SFX source
-// //         audioManager.sfxSource.Stop();
+//         // Stop the SFX source
+//         audioManager.sfxSource.Stop();
 
-// //         // Assert that the SFX source is not playing
-// //         Assert.IsFalse(audioManager.sfxSource.isPlaying);
-// //     }
+//         // Assert that the SFX source is not playing
+//         Assert.IsFalse(audioManager.sfxSource.isPlaying);
+//     }
 
-// //     [UnityTest]
-// //     public IEnumerator TestStopBackgroundMusic()
-// //     {
-// //         // Play the first background music clip
-// //         audioManager.PlayAudio(1, 0);
+//     [UnityTest]
+//     public IEnumerator TestStopBackgroundMusic()
+//     {
+//         // Play the first background music clip
+//         audioManager.PlayAudio(1, 0);
 
-// //         // Wait for a frame to allow the audio to play
-// //         yield return null;
+//         // Wait for a frame to allow the audio to play
+//         yield return null;
 
-// //         // Stop the background music source
-// //         audioManager.backgroundMusicSource.Stop();
+//         // Stop the background music source
+//         audioManager.backgroundMusicSource.Stop();
 
-// //         // Assert that the background music source is not playing
-// //         Assert.IsFalse(audioManager.backgroundMusicSource.isPlaying);
-// //     }
-// // }
+//         // Assert that the background music source is not playing
+//         Assert.IsFalse(audioManager.backgroundMusicSource.isPlaying);
+//     }
+// }
 
 
 // using UnityEngine;
