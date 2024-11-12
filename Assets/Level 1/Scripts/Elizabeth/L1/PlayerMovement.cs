@@ -46,11 +46,6 @@ public class PlayerMovement : MonoBehaviour
             Jump();
         }
 
-        if (grounded)
-        {
-            //TODO: Play sound effect here
-        }
-
         // Handle attack input (for fist attack)
         if (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)) // Example key for attack (X)
         {
@@ -61,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+        // AudioManager.Instance.PlaySFX(1);
         float moveInput = GetMoveInput();
 
         // Move the player horizontally
@@ -72,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        AudioManager.Instance.PlaySFX(3);
         // Set the player as jumping
         isJumping = true;
 
@@ -84,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
 #if UNITY_IOS || UNITY_ANDROID
         return joystick.Horizontal;  // Mobile joystick input
 #else
-            return Input.GetAxis("Horizontal");  // Desktop keyboard input
+        return Input.GetAxis("Horizontal");  // Desktop keyboard input
 #endif
     }
 
@@ -108,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void PerformAttack()
     {
+        AudioManager.Instance.PlaySFX(2);
         // Notify the animation controller to play the fist attack animation
         playerAnimationController.PlayFistAttack();
     }

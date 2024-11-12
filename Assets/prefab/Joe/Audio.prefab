@@ -302,10 +302,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f953187d19a63463c872ae74001f2bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusicSource: {fileID: 1663334873949874188}
   sfxSource: {fileID: 6125618127350117382}
+  backgroundMusicSource: {fileID: 1663334873949874188}
+  sfxClips:
+  - {fileID: 8300000, guid: 2eed9e835f54e4a4b9ab500b4ffe2aea, type: 3}
+  - {fileID: 8300000, guid: 453f5ecef9bf34ec58912e0a1d38642f, type: 3}
+  - {fileID: 8300000, guid: 50d51177b24094b0ca83f1740a4de2cf, type: 3}
+  - {fileID: 8300000, guid: 35369d31c28134559abce2000f2d8364, type: 3}
   audioClips:
   - {fileID: 8300000, guid: 453f5ecef9bf34ec58912e0a1d38642f, type: 3}
   - {fileID: 8300000, guid: 57d65391c980c4885b5d5f3260d9c508, type: 3}
-  sfxClips:
-  - {fileID: 8300000, guid: 2eed9e835f54e4a4b9ab500b4ffe2aea, type: 3}

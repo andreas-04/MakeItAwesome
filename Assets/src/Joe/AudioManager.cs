@@ -14,7 +14,6 @@ public class AudioManager : MonoBehaviour
     public List<AudioClip> sfxClips; // List to hold audio clips
     public List<AudioClip> audioClips; // List to hold audio clips
 
-
     void Awake()
     {
         // Make the AudioManager persistent across scenes
@@ -30,14 +29,14 @@ public class AudioManager : MonoBehaviour
         }
         // Index 0
         AudioPlayer sfxAudio = new AudioPlayer.SFXAudio();
-        sfxAudio.audioSource = sfxSource;
-        sfxAudio.audioClips = sfxClips;
+        sfxAudio.SetAudioSource(sfxSource);
+        sfxAudio.SetAudioClips(sfxClips);
         audioPlayers.Add(sfxAudio);
 
         // Index 1
         AudioPlayer backgroundAudio = new AudioPlayer.BackgroundAudio();
-        backgroundAudio.audioSource = backgroundMusicSource;
-        backgroundAudio.audioClips = audioClips; // Initialize the list of audio clips
+        backgroundAudio.SetAudioSource(backgroundMusicSource);
+        backgroundAudio.SetAudioClips(audioClips);
         audioPlayers.Add(backgroundAudio);
     }
 
@@ -52,5 +51,10 @@ public class AudioManager : MonoBehaviour
         {
             Debug.LogWarning("Invalid audio player index");
         }
+    }
+
+    public void PlaySFX(int clip)
+    {
+        audioPlayers[0].Play(clip);
     }
 }

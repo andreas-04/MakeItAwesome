@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 public class AudioPlayer
 {
-    public AudioSource audioSource; // AudioSource for playing audio
+    private AudioSource audioSource; // AudioSource for playing audio
 
-    public List<AudioClip> audioClips; // List to hold audio clips
+    private List<AudioClip> audioClips; // List to hold audio clips
 
     public virtual void Play(int clip)
     // public void Play(int clip)
@@ -14,6 +14,16 @@ public class AudioPlayer
         audioSource.clip = audioClips[0];
         audioSource.Play();
 
+    }
+
+    public void SetAudioSource(AudioSource source)
+    {
+        audioSource = source;
+    }
+
+    public void SetAudioClips(List<AudioClip> clips)
+    {
+        audioClips = clips;
     }
 
     public class BackgroundAudio : AudioPlayer

@@ -52,6 +52,7 @@ public class PlayerMovementLvl3 : MonoBehaviour
 
     private void Jump()
     {
+        AudioManager.Instance.PlaySFX(3);
         // Check if jump is pressed (space for keyboard, joystick for mobile)
 #if UNITY_IOS || UNITY_ANDROID
         if (joystick.Vertical > 0.5f && grounded)  // Adjust the threshold as needed

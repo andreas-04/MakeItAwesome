@@ -63,6 +63,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void HandleAttack()
     {
+        AudioManager.Instance.PlaySFX(2);
         // Execute the current attack and play the related animation
         currentAttack.ExecuteAttack(transform);
         playerAnimationControllerLvl3.PlayAttackAnimation(currentAttack.AnimationTrigger);
