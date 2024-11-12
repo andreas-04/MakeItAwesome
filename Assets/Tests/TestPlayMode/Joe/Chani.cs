@@ -32,8 +32,8 @@ public class JOE_TEST_Chani
     public IEnumerator ContinueButtonExists()
     {
         yield return new WaitWhile(() => sceneLoaded == false);
-        GameObject startButton = GameObject.Find("Continue");
-        Assert.IsNotNull(startButton, "Start button not found in the scene");
+        GameObject conti = GameObject.Find("Continue");
+        Assert.IsNotNull(conti, "Start button not found in the scene");
         yield return null;
     }
 
@@ -50,18 +50,14 @@ public class JOE_TEST_Chani
     public IEnumerator ContinueButtonLoadsGameScene()
     {
         yield return new WaitWhile(() => sceneLoaded == false);
-        GameObject startButton = GameObject.Find("Continue");
-        // Assert.IsNotNull(startButton, "continue button not found in the scene");
+        GameObject conti = GameObject.Find("Continue");
 
         // Click the start button
-        startButton.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
+        conti.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
 
         // Wait for the scene to load
         yield return new WaitForSeconds(1);
 
-        // Check if the active scene is the game scene
-
-        Debug.Log(SceneManager.GetActiveScene().name);
         Assert.AreEqual("Level1", SceneManager.GetActiveScene().name);
         yield return null;
     }
@@ -70,17 +66,15 @@ public class JOE_TEST_Chani
     public IEnumerator RunButtonLoadsGameScene()
     {
         yield return new WaitWhile(() => sceneLoaded == false);
-        GameObject startButton = GameObject.Find("Run");
-        Assert.IsNotNull(startButton, "continue button not found in the scene");
+        GameObject run = GameObject.Find("Run");
+        Assert.IsNotNull(run, "run button not found in the scene");
 
         // Click the start button
-        startButton.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
+        run.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
 
         // Wait for the scene to load
         yield return new WaitForSeconds(2);
 
-        // Check if the active scene is the game scene
-        // Debug.Log(SceneManager.GetActiveScene().name);
         Assert.AreEqual("End", SceneManager.GetActiveScene().name);
         yield return null;
     }

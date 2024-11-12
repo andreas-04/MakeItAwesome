@@ -52,8 +52,8 @@ public class JOE_TitleScreenPlayModeTests
     public IEnumerator ControlsButtonExists()
     {
         yield return new WaitWhile(() => sceneLoaded == false);
-        GameObject startButton = GameObject.Find("Controls");
-        Assert.IsNotNull(startButton, "Controls button not found in the scene");
+        GameObject controls = GameObject.Find("Controls");
+        Assert.IsNotNull(controls, "controls button not found in the scene");
         yield return null;
     }
 
@@ -80,8 +80,8 @@ public class JOE_TitleScreenPlayModeTests
     public IEnumerator ExitButtonExists()
     {
         yield return new WaitWhile(() => sceneLoaded == false);
-        GameObject startButton = GameObject.Find("Exit");
-        Assert.IsNotNull(startButton, "Exit button not found in the scene");
+        GameObject exit = GameObject.Find("Exit");
+        Assert.IsNotNull(exit, "Exit button not found in the scene");
         yield return null;
     }
 

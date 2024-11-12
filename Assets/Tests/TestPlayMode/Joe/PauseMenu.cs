@@ -5,7 +5,6 @@ using NUnit.Framework;
 using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
 
-
 public class JOE_PauseMenuPlayModeTests
 {
     private bool sceneLoaded;
@@ -28,17 +27,71 @@ public class JOE_PauseMenuPlayModeTests
         yield return new WaitWhile(() => sceneLoaded == false);
 
         // Wait for the scene to load
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5f);
 
-        // Find the PauseButton by searching for the Button component
-        UnityEngine.UI.Button pauseButton = GameObject.FindObjectOfType<UnityEngine.UI.Button>(true);
-        Assert.IsNotNull(pauseButton, "Pause button not found in the scene");
+        GameObject pause = GameObject.Find("PauseButton");
 
-        // Optionally, check if the button has the correct name
-        Assert.AreEqual("PauseButton", pauseButton.name, "Found button does not have the expected name");
-
+        Assert.IsNotNull(pause, "pause button not found in the scene");
         yield return null;
     }
 
+    [UnityTest]
+    public IEnumerator PauseResumeButtonClickResume()
+    {
+        yield return new WaitWhile(() => sceneLoaded == false);
 
+        // Wait for the scene to load
+        yield return new WaitForSeconds(5f);
+
+        GameObject pause = GameObject.Find("PauseButton");
+        // Click the start button
+        pause.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
+
+        // Wait for the scene to load
+        yield return new WaitForSeconds(2);
+
+        GameObject resume = GameObject.Find("Resume");
+        Assert.IsNotNull(resume, "resume button not found in the scene");
+        yield return null;
+    }
+
+    [UnityTest]
+    public IEnumerator PauseResumeButtonClickControls()
+    {
+        yield return new WaitWhile(() => sceneLoaded == false);
+
+        // Wait for the scene to load
+        yield return new WaitForSeconds(5f);
+
+        GameObject pause = GameObject.Find("PauseButton");
+        // Click the start button
+        pause.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
+
+        // Wait for the scene to load
+        yield return new WaitForSeconds(2);
+
+        GameObject controls = GameObject.Find("Controls");
+        Assert.IsNotNull(controls, "controls button not found in the scene");
+        yield return null;
+    }
+
+    [UnityTest]
+    public IEnumerator PauseResumeButtonClickQuit()
+    {
+        yield return new WaitWhile(() => sceneLoaded == false);
+
+        // Wait for the scene to load
+        yield return new WaitForSeconds(5f);
+
+        GameObject pause = GameObject.Find("PauseButton");
+        // Click the start button
+        pause.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
+
+        // Wait for the scene to load
+        yield return new WaitForSeconds(2);
+
+        GameObject quit = GameObject.Find("Quit");
+        Assert.IsNotNull(quit, "controls button not found in the scene");
+        yield return null;
+    }
 }

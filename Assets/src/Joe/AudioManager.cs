@@ -44,8 +44,8 @@ public class AudioManager : MonoBehaviour
     {
         if (index >= 0 && index < audioPlayers.Count)
         {
+            Debug.LogWarning("Playing audiomanager audio");
             audioPlayers[index].Play(clip);
-            Debug.Log("Playing audiomanager audio");
         }
         else
         {
@@ -55,6 +55,14 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX(int clip)
     {
-        audioPlayers[0].Play(clip);
+        if (clip >= 0)
+        {
+            Debug.LogWarning("Playing SFX audio");
+            audioPlayers[0].Play(clip);
+        }
+        else
+        {
+            Debug.LogWarning("Invalid audio clip index");
+        }
     }
 }

@@ -10,7 +10,7 @@ public class AudioPlayer
     public virtual void Play(int clip)
     // public void Play(int clip)
     {
-        Debug.Log("Playing superclass audio");
+        Debug.LogWarning("Playing superclass audio");
         audioSource.clip = audioClips[0];
         audioSource.Play();
 
@@ -31,7 +31,7 @@ public class AudioPlayer
         public override void Play(int clip)
         // public void Play(int clip)
         {
-            Debug.Log("Playing background music");
+            Debug.LogWarning("Playing background music");
             audioSource.loop = true;
             audioSource.clip = audioClips[clip];
             audioSource.Play();
@@ -43,7 +43,7 @@ public class AudioPlayer
         public override void Play(int clip)
         // public void Play(int clip)
         {
-            Debug.Log("Playing SFX audio");
+            Debug.LogWarning("Playing SFX audio");
             audioSource.loop = false;
             audioSource.clip = audioClips[clip];
             audioSource.Play();
