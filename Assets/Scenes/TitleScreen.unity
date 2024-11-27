@@ -1427,11 +1427,14 @@ MonoBehaviour:
   maxFailures: 0
   minFrameRate: 10
   maxAudioSources: 10
+  failedFrameRate: 0
   testClips:
   - {fileID: 8300000, guid: 453f5ecef9bf34ec58912e0a1d38642f, type: 3}
   - {fileID: 8300000, guid: 57d65391c980c4885b5d5f3260d9c508, type: 3}
   - {fileID: 8300000, guid: 50d51177b24094b0ca83f1740a4de2cf, type: 3}
   - {fileID: 8300000, guid: 2eed9e835f54e4a4b9ab500b4ffe2aea, type: 3}
+  failureCount: 0
+  audioSources: []
 --- !u!4 &1249295663
 Transform:
   m_ObjectHideFlags: 0
