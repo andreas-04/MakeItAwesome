@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Collectible"))
         {
             itemsCollected++;
+            Debug.Log("Items collected: " + itemsCollected);
             Destroy(other.gameObject); // Remove the collected item
 
             // Check if all items are collected
