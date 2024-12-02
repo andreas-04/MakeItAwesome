@@ -6,10 +6,10 @@ public class BaseWormManager : MonoBehaviour
 {
     [SerializeField] protected List<GameObject> bodyParts = new List<GameObject>();
     [SerializeField] protected float distanceBetween = .2f;
-    protected List<GameObject> wormBody = new List<GameObject>(); 
-    protected float countUp = 0;  
+    protected List<GameObject> wormBody = new List<GameObject>();
+    protected float countUp = 0;
 
-    
+
     // Virtual method for dynamic binding
     protected virtual void CreateBodyParts()
     {
@@ -27,14 +27,14 @@ public class BaseWormManager : MonoBehaviour
             wormBody.Add(temp);
             bodyParts.RemoveAt(0);
         }
-        
+
         MarkerManager markM = wormBody[wormBody.Count - 1].GetComponent<MarkerManager>();
         if (countUp == 0)
         {
             markM.ClearMarkerList();
         }
         countUp += Time.deltaTime;
-        
+
         if (countUp >= distanceBetween)
         {
             AddBodyPart(markM);
@@ -56,28 +56,28 @@ public class BaseWormManager : MonoBehaviour
         temp1.GetComponent<MarkerManager>().ClearMarkerList();
         countUp = 0;
     }
-    
+
 }
 
 // Derived class that overrides CreateBodyParts
 public class WormManager : BaseWormManager
 {
-    [SerializeField] float speed = 280; 
+    [SerializeField] float speed = 280;
     [SerializeField] float turnSpeed = 180;
 
 
     void Start()
     {
-        CreateBodyParts();
+        // CreateBodyParts();
     }
 
     void FixedUpdate()
     {
-        if (bodyParts.Count > 0)
-        {
-            CreateBodyParts();
-        }
-        WormMovement();
+        // if (bodyParts.Count > 0)
+        // {
+        //     CreateBodyParts();
+        // }
+        // WormMovement();
     }
 
     void WormMovement()
@@ -105,33 +105,33 @@ public class WormManager : BaseWormManager
             collision.gameObject.GetComponent<WaterManager>().SpawnNewWater();
         }
     }
-    
 
-// protected override void CreateBodyParts()
-// {
-//     if (bodyParts.Count < 2 || bodyParts[0] == null || bodyParts[1] == null)
-//     {
-//         Debug.LogError("Please assign at least two valid prefabs to 'bodyParts' in the Inspector.");
-//         return;
-//     }
 
-//     while (wormBody.Count < 2)
-//     {
-//         GameObject newSegment = Instantiate(bodyParts[0], transform.position, transform.rotation, transform);
-//         if (!newSegment.GetComponent<MarkerManager>())
-//             newSegment.AddComponent<MarkerManager>();
-//         if (!newSegment.GetComponent<Rigidbody2D>())
-//         {
-//             var rb = newSegment.AddComponent<Rigidbody2D>();
-//             rb.gravityScale = 0;
-//             rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-//         }
+    // protected override void CreateBodyParts()
+    // {
+    //     if (bodyParts.Count < 2 || bodyParts[0] == null || bodyParts[1] == null)
+    //     {
+    //         Debug.LogError("Please assign at least two valid prefabs to 'bodyParts' in the Inspector.");
+    //         return;
+    //     }
 
-//         wormBody.Add(newSegment);
-//         bodyParts.RemoveAt(0);
+    //     while (wormBody.Count < 2)
+    //     {
+    //         GameObject newSegment = Instantiate(bodyParts[0], transform.position, transform.rotation, transform);
+    //         if (!newSegment.GetComponent<MarkerManager>())
+    //             newSegment.AddComponent<MarkerManager>();
+    //         if (!newSegment.GetComponent<Rigidbody2D>())
+    //         {
+    //             var rb = newSegment.AddComponent<Rigidbody2D>();
+    //             rb.gravityScale = 0;
+    //             rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+    //         }
 
-//         newSegment.GetComponent<MarkerManager>().ClearMarkerList();
-//     }
-// }
+    //         wormBody.Add(newSegment);
+    //         bodyParts.RemoveAt(0);
+
+    //         newSegment.GetComponent<MarkerManager>().ClearMarkerList();
+    //     }
+    // }
 
 }
