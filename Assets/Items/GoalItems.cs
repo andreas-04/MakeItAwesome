@@ -16,7 +16,7 @@ public class GoalItems : CollectibleHandler
             //gm.GetComponent<GameManager>().AddToInventory(this);
             disableItem(gameObject);
             itemsCollected++;
-            //Debug.Log("item collected: " + gameObject + "num collected: " + itemsCollected);
+            Debug.Log("item collected: " + gameObject + "num collected: " + itemsCollected);
         }
     }
 
@@ -30,5 +30,13 @@ public class GoalItems : CollectibleHandler
         Instantiate(knife, new Vector2(posX+111,posY-43), Quaternion.identity); //green 111 -43
         Instantiate(hooks, new Vector2(posX-86,posY-35), Quaternion.identity); //white -86 -35
     } 
+
+    public bool allItemsCollected() {
+        if (itemsCollected == 4) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }

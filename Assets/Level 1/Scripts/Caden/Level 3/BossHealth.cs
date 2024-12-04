@@ -11,12 +11,20 @@ public class BossHealth : MonoBehaviour
 
     public bool isInvulnerable = false;
 
+    public BossHealthScript healthbar;
+
+    void Start()
+    {
+        healthbar.SetMaxHealth(health);
+    }
+
     public void TakeDamage(int damage)
     {
         if (isInvulnerable)
             return;
 
         health -= damage;
+        healthbar.SetHealth(health);//
 
         if (health <= 200)
         {
