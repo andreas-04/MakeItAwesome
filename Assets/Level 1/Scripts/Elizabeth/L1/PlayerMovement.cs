@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)) // Example key for attack (X)
         {
             PerformAttack();
-            Debug.Log("No Attack? ");
+            
         }
     }
 

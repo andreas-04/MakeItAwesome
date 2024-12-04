@@ -11,6 +11,10 @@ public class PlayerMovementLvl3 : MonoBehaviour
     public bool grounded = true;
     bool spacebarPressed = true;
 
+    public Vector2 boxSize;
+    public float castDistance;
+    public LayerMask groundLayer;
+
     private PlayerAnimationControllerLvl3 playerAnimationController; // Controls animation
 
     // Joystick reference for mobile controls (assign in the Inspector if needed)
@@ -29,7 +33,7 @@ public class PlayerMovementLvl3 : MonoBehaviour
         Jump();
 
         float verticalVelocity = rb.velocity.y;
-
+        grounded = isGrounded();
         // Sends speed and grounded state to animation script function
         playerAnimationController.UpdateAnimation(moveInput, grounded, verticalVelocity, spacebarPressed);
     }
@@ -67,22 +71,24 @@ public class PlayerMovementLvl3 : MonoBehaviour
     }
 
     // Collision checks for grounded (Doesn't use raycast or box)
-    private void OnCollisionEnter2D(Collision2D other)
+    public bool isGrounded()
     {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            grounded = true;
-            spacebarPressed = false;
-        }
+        float offset = 0.5f;
+        Vector2 leftRayOrigin = new Vector2(transform.position.x - offset, transform.position.y);
+        Vector2 rightRayOrigin = new Vector2(transform.position.x + offset, transform.position.y);
+
+        RaycastHit2D leftRayHit = Physics2D.Raycast(leftRayOrigin, Vector2.down, castDistance, groundLayer);
+        RaycastHit2D rightRayHit = Physics2D.Raycast(rightRayOrigin, Vector2.down, castDistance, groundLayer);
+
+        return leftRayHit.collider != null || rightRayHit.collider != null;
     }
 
-    private void OnCollisionExit2D(Collision2D other)
+    private void OnDrawGizmos()
     {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            grounded = false;
-        }
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position - transform.up * castDistance, boxSize);
     }
+
 
     public float CalculateSpeed(float distance, float time)
     {
