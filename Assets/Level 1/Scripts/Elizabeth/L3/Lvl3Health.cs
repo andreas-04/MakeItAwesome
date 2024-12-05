@@ -70,7 +70,7 @@ public class Lvl3Health : MonoBehaviour
 
         wormObject.SetActive(true); // Make the worm appear
 
-        WormBehavior wormBehavior = wormObject.GetComponent<WormBehavior>();
+        Worm wormBehavior = wormObject.GetComponent<Worm>();
         if (wormBehavior != null)
         {
             wormBehavior.StartMovingTowardsBoss(); // Start worm movement

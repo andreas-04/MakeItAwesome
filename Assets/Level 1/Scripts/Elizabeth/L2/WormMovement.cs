@@ -12,13 +12,17 @@ public class WormMovement : MonoBehaviour
         // Get the tilt of the device (acceleration in 3D space)
         Vector3 tilt = Input.acceleration;
 
-        // Move the worm up/down based on the tilt in the x-axis (left/right tilt)
-        float moveVertical = tilt.x; // Tilt on the X-axis (left and right)
+        // Move the worm up/down based on the tilt in the y-axis (up/down tilt)
+        float moveVertical = tilt.y; // Tilt on the Y-axis (up and down)
+        // Move the worm left/right based on the tilt in the x-axis (left/right tilt)
+        float moveHorizontal = tilt.x; // Tilt on the X-axis (left and right)
 
-        // You can scale this movement for more or less sensitivity
-        transform.Translate(0, moveVertical * movementSpeed * tiltSensitivity * Time.deltaTime, 0);
+        // Move the worm in both the horizontal and vertical directions
+        transform.Translate(moveHorizontal * movementSpeed * tiltSensitivity * Time.deltaTime,
+                            moveVertical * movementSpeed * tiltSensitivity * Time.deltaTime,
+                            0);
 
-        // Rotate the worm around the z-axis based on the tilt (left/right tilt = turning)
+        
         float turnAmount = tilt.x; // Use tilt.x to determine the turning direction
         transform.Rotate(0, 0, -turnAmount * turnSpeed * Time.deltaTime); // Rotate around Z-axis for turning
     }

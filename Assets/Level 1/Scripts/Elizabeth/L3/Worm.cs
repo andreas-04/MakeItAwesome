@@ -1,7 +1,7 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
-public class WormBehavior : MonoBehaviour
+public class Worm : MonoBehaviour
 {
     public float moveSpeed = 2f;  // Worm speed (adjustable)
     private GameObject boss;      // Reference to the boss object
@@ -61,9 +61,6 @@ public class WormBehavior : MonoBehaviour
 
         // Start damage over time while the worm eats the boss
         StartCoroutine(EatBossAndDamageHealth());
-
-        
-       
     }
 
     // Coroutine to handle damage to the boss over time while worm eats it

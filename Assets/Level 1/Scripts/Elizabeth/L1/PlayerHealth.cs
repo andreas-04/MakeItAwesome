@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : Subject
 {
@@ -36,6 +36,7 @@ public class PlayerHealth : Subject
             Debug.Log("Player hit by enemy, taking damage");
         }
     }
+
     public void TakeDamage(float damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, startingHealth);  // Keep health between 0 and starting health
@@ -45,8 +46,12 @@ public class PlayerHealth : Subject
         {
             Debug.Log("Dead");
             Debug.Log("Current Health: " + currentHealth);
+
+            // Play death animation
             GetComponent<PlayerAnimationController>().PlayDeadAnimation();
 
+            // Wait 2 seconds and reload the scene
+            StartCoroutine(ReloadSceneAfterDelay(1f));
         }
     }
 
@@ -62,5 +67,9 @@ public class PlayerHealth : Subject
         }
     }
 
-
+    private IEnumerator ReloadSceneAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);  // Wait for the specified delay
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);  // Reload the current scene
+    }
 }

@@ -268,11 +268,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6571172715756053044, guid: 381c53432028b42d9926ee1b2248fd74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.93
+      value: 16.82
       objectReference: {fileID: 0}
     - target: {fileID: 6571172715756053044, guid: 381c53432028b42d9926ee1b2248fd74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -27.47
+      value: -28.13
       objectReference: {fileID: 0}
     - target: {fileID: 6571172715756053044, guid: 381c53432028b42d9926ee1b2248fd74, type: 3}
       propertyPath: m_LocalPosition.z
@@ -87733,7 +87733,7 @@ Transform:
   m_GameObject: {fileID: 807799515}
   serializedVersion: 2
   m_LocalRotation: {x: 0.001657672, y: -0.020942371, z: 0.000034723245, w: 0.99977934}
-  m_LocalPosition: {x: -8.97, y: -30.71, z: -0}
+  m_LocalPosition: {x: -8.67, y: -30.5, z: -0}
   m_LocalScale: {x: 0.9464, y: 1.1212, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -87751,7 +87751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b707d8053a8e1c74bb354eb4946f947c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 10
   damagePerSecond: 5
   eatingDuration: 5
 --- !u!1001 &959487562
@@ -88245,10 +88245,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54390daaf4aaa5f40be94e23db163f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  jumpForce: 7
+  speed: 3
+  jumpForce: 6
   player: {fileID: 657383408}
-  jumpCooldown: 3
+  jumpCooldown: 2
+  quickJumpDelay: 0.5
 --- !u!1 &1400426627
 GameObject:
   m_ObjectHideFlags: 0
@@ -88931,8 +88932,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8693015852593796059, guid: c2dceb1fbd9386b4299877a0f95296c4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693015852593796059, guid: c2dceb1fbd9386b4299877a0f95296c4, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693015852593796059, guid: c2dceb1fbd9386b4299877a0f95296c4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 93.4831
+      value: 93.48309
       objectReference: {fileID: 0}
     - target: {fileID: 8693015852593796059, guid: c2dceb1fbd9386b4299877a0f95296c4, type: 3}
       propertyPath: m_SizeDelta.y
@@ -88940,11 +88949,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8693015852593796059, guid: c2dceb1fbd9386b4299877a0f95296c4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 46.7416
+      value: 64.3
       objectReference: {fileID: 0}
     - target: {fileID: 8693015852593796059, guid: c2dceb1fbd9386b4299877a0f95296c4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 43.6957
+      value: 63
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -95057,6 +95066,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1416995885054293466, guid: 381c53432028b42d9926ee1b2248fd74, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1538351135882543713, guid: 381c53432028b42d9926ee1b2248fd74, type: 3}
       propertyPath: m_BodyType
       value: 0
@@ -95103,11 +95116,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6571172715756053044, guid: 381c53432028b42d9926ee1b2248fd74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.51
+      value: -12.6
       objectReference: {fileID: 0}
     - target: {fileID: 6571172715756053044, guid: 381c53432028b42d9926ee1b2248fd74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -33.06
+      value: -32.72
       objectReference: {fileID: 0}
     - target: {fileID: 6571172715756053044, guid: 381c53432028b42d9926ee1b2248fd74, type: 3}
       propertyPath: m_LocalPosition.z
@@ -95279,7 +95292,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.0131, y: 0.1362}
+  m_AnchoredPosition: {x: -0.0131, y: 0.03}
   m_SizeDelta: {x: 2.6117, y: 2.8338}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1926058534
